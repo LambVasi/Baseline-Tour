@@ -266,6 +266,119 @@ tr.me td{background:var(--accent-soft);font-weight:700}
   .cmprow{grid-template-columns:28px 1fr 64px 1fr 28px}
 }
 /* v2 additions */
+/* ---- This week (v3) ---- */
+.hub > .stack{min-width:0}
+@media (max-width:900px){.hub{grid-template-columns:minmax(0,1fr)}}
+.wk-head{background:var(--board);color:var(--board-ink);border-radius:16px;padding:16px 18px;display:flex;flex-direction:column;gap:12px}
+.wk-head .eyebrow{color:var(--board-muted);margin:0}
+.wk-head h2{margin:2px 0 0;color:#fff;font-size:clamp(26px,6vw,36px);line-height:1}
+.wk-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.wk-stats > div{background:rgba(255,255,255,.07);border-radius:12px;padding:9px 11px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.wk-stats .k{font:500 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--board-muted)}
+.wk-stats b{font-family:var(--display);font-weight:800;font-size:24px;line-height:1;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wk-stats em{font-style:normal;font-size:12px;color:var(--board-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fbar{height:6px;border-radius:99px;background:rgba(255,255,255,.14);overflow:hidden}
+.fbar i{display:block;height:100%;border-radius:99px}
+.dots{display:flex;gap:5px;align-items:center;height:24px}
+.dots i{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.16)}
+.dots i.W{background:#6fd48f}.dots i.L{background:#e3685e}
+.wk-flags{display:flex;flex-wrap:wrap;gap:6px}
+.flag{font:600 12.5px var(--body);padding:6px 11px;border-radius:99px;background:rgba(255,255,255,.1);color:var(--board-ink);border:0}
+.flag.bad{background:#c2453b;color:#fff}.flag.warn{background:#e0ad45;color:#1c1405}
+button.flag{cursor:pointer}.flag.link{background:var(--ball);color:#1B2A10}
+.wk-rep{border:1px solid var(--line);border-left:4px solid var(--ball);background:var(--panel);border-radius:12px;padding:10px 12px}
+.wk-rep .top{display:flex;align-items:center;gap:8px}
+.wk-rep .sum{flex:1;min-width:0;font-size:14px}
+.wk-rep .sum b{display:block;font-family:var(--display);text-transform:uppercase;font-size:16px;letter-spacing:.01em}
+.wk-rep .sum span{display:block;color:var(--muted);font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wk-rep ul{margin:10px 0 2px;padding-left:18px;font-size:14px;display:flex;flex-direction:column;gap:5px}
+.minibtn{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:6px 10px;cursor:pointer;font:600 12.5px var(--body);color:var(--ink);white-space:nowrap}
+.wk-choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.choice{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.choice h4{margin:0;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:21px;line-height:1}
+.choice p{margin:0;font-size:12.5px;color:var(--muted);line-height:1.35}
+.choice .btn{width:100%;justify-content:center;text-align:center;margin-top:auto}
+.choice.hot{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.choice .lnk{background:none;border:0;padding:0;color:var(--accent);font:600 12.5px var(--body);cursor:pointer;text-align:left}
+.focuspanel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px}
+.focuspanel .chips{margin:0}
+.sect{display:flex;justify-content:space-between;align-items:baseline;margin:4px 2px 8px}
+.sect h3{margin:0}
+.sect span{font-size:12.5px;color:var(--muted)}
+.tcs{display:flex;flex-direction:column;gap:10px}
+.tc{display:grid;grid-template-columns:7px minmax(0,1fr);background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.tc .tband{background:var(--sc)}
+.tc.slam,.tle.slam{--sc:#B8891A}
+.tc .tcb{padding:12px 14px;display:flex;flex-direction:column;gap:5px;min-width:0}
+.tct{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.tc .tier{font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--sc)}
+.tc .nm{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(22px,5.5vw,28px);line-height:1.02}
+.tc .facts{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:2px 10px;align-items:center}
+.tc .facts .dt{width:9px;height:9px;border-radius:50%;background:var(--sc);display:inline-block;margin-right:4px}
+.tc .prize{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.tc .prize b{font-family:var(--display);font-weight:800;font-size:24px;line-height:1}
+.tc .prize span{font-size:13px;color:var(--muted)}
+.tc .tcf{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:4px}
+.tc .tcf .btn{min-width:120px;justify-content:center}
+.tc.slam{background:linear-gradient(135deg,rgba(184,137,26,.16),var(--panel) 60%);border-color:rgba(184,137,26,.55)}
+.tc.slam .nm{color:#8a650c}
+.tc.no{opacity:.72}
+.trs{border:1px solid var(--line);border-radius:14px;background:var(--panel);overflow:hidden}
+.tr{display:grid;grid-template-columns:10px minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px 12px;border-top:1px solid var(--line)}
+.tr:first-child{border-top:0}
+.tr > i{width:10px;height:10px;border-radius:50%;background:var(--sc)}
+.tr b{display:block;font-size:14.5px}
+.tr span{display:block;font-size:12px;color:var(--muted)}
+.tr span .ok{color:var(--good);font-weight:600}.tr span .q{color:var(--warn);font-weight:600}
+.tl{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 8px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+.tlw{flex:0 0 112px;scroll-snap-align:start;display:flex;flex-direction:column;gap:5px}
+.tlw .w{font:600 12px var(--mono)}
+.tlw .d{font-size:11px;color:var(--muted);margin-top:-4px}
+.tle{font-size:12px;line-height:1.2;padding:6px 7px;border-radius:8px;background:var(--panel2);border-left:3px solid var(--sc);font-weight:600}
+.tle.slam{background:rgba(184,137,26,.18)}
+.tle.none{border-left-color:var(--line);color:var(--muted);font-weight:400}
+.newsx .news div:nth-child(n+6){display:none}
+.newsx.more .news div:nth-child(n+6){display:grid}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tc.slam .nm{color:#E8C466}}
+:root[data-theme="dark"] .tc.slam .nm{color:#E8C466}
+@media (max-width:560px){
+  .topbar.hubtop .plate{display:none}
+  .sect h3{font-size:20px}
+  .wk-head{padding:14px;border-radius:14px}
+  .wk-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .wk-choices{gap:6px}
+  .choice{padding:10px 8px;border-radius:12px}
+  .choice h4{font-size:18px}
+  .choice p{font-size:11.5px}
+  .choice .btn{padding:10px 6px;font-size:14px}
+  .tc .tcf .btn{flex:1}
+}
+
+.sev.slam,.ev.slam,.surf.slam{--sc:#B8891A}
+.ev.slam{background:linear-gradient(90deg,rgba(184,137,26,.10),transparent 60%)}
+.ev.slam .name,.surf.slam{color:#9A7210;font-weight:600}
+.sev.slam .nm{color:#9A7210}
+.sev.slam .tb{background:#B8891A;color:#fff;border-color:#B8891A}
+.sev.slam .surf i{box-shadow:0 0 0 3px rgba(184,137,26,.25)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .ev.slam,:root:not([data-theme="light"]) .surf.slam{--sc:#E2B64A}:root:not([data-theme="light"]) .ev.slam .name,:root:not([data-theme="light"]) .surf.slam{color:#E8C466}:root:not([data-theme="light"]) .sev.slam{--sc:#E2B64A}:root:not([data-theme="light"]) .sev.slam .nm{color:#E8C466}:root:not([data-theme="light"]) .sev.slam .tb{background:#E2B64A;color:#1c1405;border-color:#E2B64A}}
+:root[data-theme="dark"] .ev.slam,:root[data-theme="dark"] .surf.slam{--sc:#E2B64A}:root[data-theme="dark"] .ev.slam .name,:root[data-theme="dark"] .surf.slam{color:#E8C466}:root[data-theme="dark"] .sev.slam{--sc:#E2B64A}:root[data-theme="dark"] .sev.slam .nm{color:#E8C466}:root[data-theme="dark"] .sev.slam .tb{background:#E2B64A;color:#1c1405;border-color:#E2B64A}
+.cabinet{background:linear-gradient(180deg,#2a1a10,#1b120b);border-radius:14px;padding:18px 16px 8px;color:#f3e9da;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06),inset 0 30px 60px rgba(0,0,0,.35)}
+.cabinet h3{color:#f3e9da;margin:0 0 4px}
+.cabinet .ch{font-size:13px;color:#cbb9a2;margin:0 0 12px}
+.shelf{position:relative;display:grid;grid-template-columns:repeat(auto-fill,minmax(136px,1fr));gap:10px 12px;padding:6px 6px 16px;margin-bottom:18px;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,0))}
+.shelf::after{content:'';position:absolute;left:-4px;right:-4px;bottom:0;height:12px;border-radius:3px;background:linear-gradient(180deg,#6b4a2e,#3f2a19);box-shadow:0 6px 10px rgba(0,0,0,.45)}
+.shelf-label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#d9c4a6;margin:0 0 6px 4px}
+.trophy{display:flex;flex-direction:column;align-items:center;text-align:center;gap:3px;padding:4px 2px 10px;position:relative}
+.trophy svg{width:86px;height:118px;filter:drop-shadow(0 8px 8px rgba(0,0,0,.45))}
+.trophy.locked svg{filter:grayscale(1) brightness(.35);opacity:.55}
+.trophy b{font-size:13px;line-height:1.2;color:#fff7ea}
+.trophy .tev{font-size:11.5px;color:#cbb9a2;line-height:1.25}
+.trophy .yr{font-family:var(--mono);font-size:10.5px;color:#e8d3b0;line-height:1.3}
+.trophy .cnt{position:absolute;top:0;right:14%;background:var(--ball);color:#1B2A10;font:800 13px var(--mono);border-radius:99px;padding:2px 7px;box-shadow:0 2px 6px rgba(0,0,0,.4)}
+.trophy.locked b,.trophy.locked .tev{color:#8d7b66}
+.cabinet .none{color:#a8957e;font-size:13px;padding:6px 6px 22px}
+@media (max-width:560px){.shelf{grid-template-columns:repeat(2,minmax(0,1fr))}.trophy svg{width:74px;height:102px}}
+
 .replaybtn{margin-left:12px;background:transparent;border:1px solid rgba(255,255,255,.35);color:var(--board-ink);border-radius:99px;padding:3px 10px;font:600 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;vertical-align:middle;white-space:nowrap}
 .replaybtn:hover{border-color:var(--ball);color:var(--ball)}
 .clash{background:var(--board);color:var(--board-ink);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
@@ -399,6 +512,8 @@ tr.me td{background:var(--accent-soft);font-weight:700}
 .hist td.yr{font-family:var(--display);font-weight:700;font-size:18px}
 .hist td .you{color:var(--good);font-weight:700}
 #modal .card.wide{max-width:680px;max-height:88vh;overflow-y:auto}
+#modal{overflow-y:auto;-webkit-overflow-scrolling:touch}
+@media (max-width:560px){#modal{place-items:start center;padding:12px}#modal .card.wide{max-height:none;overflow:visible;margin-bottom:24px}}
 .profhead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}
 .facts2{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 .facts2 div{display:flex;flex-direction:column;gap:2px}
@@ -1896,9 +2011,9 @@ const BRANDS = {
   watch:{3:[['Tissot',1980,2100],['Longines',1980,2100]],
           4:[['Omega',1980,2100],['Hublot',1990,2100]],
           5:[['Rolex',1980,2100],['Richard Mille',2004,2100]]},
-  drink:{3:[['Perrier',1980,2100],['Lavazza',1995,2100],['Stella Artois',1980,2100,1],['Peroni',2000,2100,1],['Jacob\'s Creek',1990,2100,1],['Aperol',2015,2100,1]],
-          4:[['Evian',1980,2100],['Coca-Cola',1980,2100],['Heineken',1980,2100,1],['Pimm\'s',1980,2100,1],['Corona',2000,2100,1],['Grey Goose',2005,2100,1]],
-          5:[['Gatorade',1980,2100],['Red Bull',1990,2100],['Moët & Chandon',1980,2100,1],['Lanson',1980,2100,1],['Heineken',2010,2100,1]]},
+  drink:{3:[['Perrier',1980,2100],['Lavazza',1995,2100],['Stella Artois',1980,2100,1],['Peroni',2000,2100,1],['Miller Lite',1980,2100,1],['Coors Light',1980,2100,1],['Aperol',2015,2100,1]],
+          4:[['Evian',1980,2100],['Coca-Cola',1980,2100],['Heineken',1980,2100,1],['Corona',1985,2100,1],['Crown Royal',1980,2100,1],['Grey Goose',1998,2100,1]],
+          5:[['Gatorade',1980,2100],['Red Bull',1990,2100],['Dom Pérignon',1980,2100,1],['Crown Royal',2005,2100,1],['Heineken',2010,2100,1]]},
   food:{3:[['Lindt',1980,2100],['Kinder',1980,2100],['Chobani',2012,2100]],
           4:[['Barilla',1980,2100],['Kellogg\'s',1980,2100],['Subway',1990,2100]],
           5:[['McDonald\'s',1980,2100],['Dairy Queen',1980,2100]]},
@@ -2122,6 +2237,7 @@ function migrate(s){
     const P = s.player; P.ach = P.ach || {}; P.flags = P.flags || {}; P.stats.davisTies = P.stats.davisTies || []; P.stats.streak = P.stats.streak || 0; P.stats.bestStreak = P.stats.bestStreak || 0;
     s.wk1 = s.wk1 || {}; s.rec = s.rec || {}; s.cur.davis = s.cur.davis || null; s.davis = s.davis || null; s.davisPlan = s.davisPlan || null;
     s.h2hx = s.h2hx || {}; s.press = s.press || null;
+    for(const c of (P.contracts||[]).concat(P.offers||[])) if(c.brand==='Moët & Chandon') c.brand = 'Dom Pérignon'; if(P.lastEventAw==null) P.lastEventAw = s.absWeek;
     for(const a of (s.ai||[])) if(a.dude==='kael') a.country = 'ITA';
     if(P.dude==='kael') P.country = 'ITA';
     if(!P.dbl) P.dbl = {partner:null, pname:'', on:true, results:[], titles:[], w:0, l:0, chem:{}, best:null};
@@ -2183,7 +2299,7 @@ function newCareer(d){
       bh: isDude?dude.bh:d.bh, grip: isDude?dude.grip:d.grip, build: isDude?dude.build:d.build, trait:d.trait, diff:d.diff, dude: isDude?d.dude:null, spec: isDude?dude.spec:null,
       born:y-18, attrs, pot, boost: isDude?1.35:1, fatigue:10, injured:0, money: Math.round(12000*moneyScale(y)*DIFFS[d.diff].cash), coach:0,
       results:[{aw:-20, pts:40, ev:'Junior circuit'}], rankHist:[], form:[], contracts:[], offers:[], milestones:{}, life:'std', staff:{}, tourStreak:0, fameBonus:0,
-      dbl:{partner:null, pname:'', on:true, results:[], titles:[], w:0, l:0, chem:{}, best:null}, coachInfo:null,
+      dbl:{partner:null, pname:'', on:true, results:[], titles:[], w:0, l:0, chem:{}, best:null}, coachInfo:null, lastEventAw:1, academy:null,
       stats:{w:0,l:0,titles:[],finals:0,prize:0,best:null,weeks1:0,surf:{hard:[0,0],clay:[0,0],grass:[0,0],indoor:[0,0]},majors:{},medals:[],laver:[],endorse:0,davisTies:[],streak:0,bestStreak:0}, ach:{}, flags:{},
       season:{w:0,l:0,titles:0,prize:0}, seasons:[]},
     ai:[], h2h:{}, h2hx:{}, press:null, news:[], plan:{}, evs:[], tour:null, team:null, match:null, rankIdx:{}, rankList:[], rankPts:{}, over:false, recap:null, fillerSeq:0,
@@ -2213,7 +2329,7 @@ function fame(){
   const majors = P.stats.titles.filter(t=>t.tier==='SLAM').length;
   const golds = P.stats.medals.filter(m=>m.medal==='Gold' && !m.dbl).length;
   const tour = P.stats.titles.filter(t=>TIERS[t.tier].rank>=4).length;
-  return clamp(Math.max(sc(rk), sc(best)*.85) + majors*3 + golds*3 + tour*.3 + (P.trait==='crowd'?6:0) + (P.fameBonus||0) + (LIFESTYLES[P.life||'std'].fame||0) + (P.foundation?4:0) + (hasPers('star')?5:0), 0, 100);
+  return clamp(Math.max(sc(rk), sc(best)*.85) + majors*3 + golds*3 + tour*.3 + (P.trait==='crowd'?6:0) + (P.fameBonus||0) + (LIFESTYLES[P.life||'std'].fame||0) + (P.foundation?4:0) + (hasPers('star')?5:0) + (acadOf()?acadOf().level:0), 0, 100);
 }
 const fameTier = f => f>=82?5:f>=70?4:f>=56?3:f>=45?2:1;
 function makeComboOffer(tier, kind='normal'){
@@ -2509,6 +2625,7 @@ function crown(id, ev, name, extra){
   if(ev.tier==='IQ') state.cur.iq = {id, name};
   if(ev.tier==='OLY') state.cur.olympics = {city:ev.city, gold:{id,name}, ...(extra||{})};
   const a = id && id!=='you' ? AI(id) : null;
+  if(a && a.acad) academyTitle(a, ev);
   if(a && T.rank>=4 && ev.tier!=='OLY'){ a.titles = (a.titles||0)+1; if(ev.tier==='SLAM') a.majors = (a.majors||0)+1; if(ev.tier==='M1000') a.m1000 = (a.m1000||0)+1; }
   if(a && ev.tier==='OLY') a.golds = (a.golds||0)+1;
 }
@@ -2588,7 +2705,7 @@ function acceptLaver(){
   const T = {kind:'laver', city:L.city, side, eu:L.eu.slice(), world:L.world.slice(), score:{eu:0,world:0}, idx:0, done:false};
   T.schedule = laverSchedule(T.eu, T.world);
   laverStep(T);
-  state.team = T; state.player.trainStreak = 0; ui.report = null; ui.tactic='bal'; ui.tab='week';
+  state.team = T; state.player.trainStreak = 0; state.player.lastEventAw = state.absWeek; ui.report = null; ui.tactic='bal'; ui.tab='week';
   save(); render();
 }
 function finishLaver(){
@@ -2682,6 +2799,7 @@ function acceptDavis(){
   const pb = t.pb.length>=2 ? t.pb : fillTeam(t.pb, t.b).concat(t.pb.includes('you')?['you']:[]).slice(0,2);
   const T = {kind:'davis', a:t.a, b:t.b, side, pa, pb, surface:t.surface, rubbers:tieRubbers(pa,pb), score:{a:0,b:0}, idx:0, done:false, bo:state.davis.bo, round:state.davis.round};
   davisStep(T);
+  state.player.lastEventAw = state.absWeek;
   state.team = T; ui.report = null; ui.tactic = 'bal'; ui.tab = 'week';
   save(); render();
 }
@@ -3107,6 +3225,158 @@ function renderStory(limit){
   return `<div class="story">${S.log.slice(0, limit||60).map(b=>`<div class="${b.you?'you':''}"><span class="sw">${b.y} · W${b.w}</span><span><b>${esc(b.title)}</b><span style="font-size:13.5px">${esc(b.text)}</span></span></div>`).join('')}</div>`;
 }
 
+/* ---------- academy ---------- */
+const ACAD_LEVELS = [null,
+  {name:'Local academy', cost:400000, note:'Four courts and a couple of coaches.'},
+  {name:'Regional academy', cost:900000, note:'Indoor courts, a gym and a boarding house.'},
+  {name:'National centre', cost:1800000, note:'The federation sends its best juniors to you.'},
+  {name:'Elite academy', cost:3500000, note:'Sports science, video analysis and a full-time medical team.'},
+  {name:'World-famous academy', cost:6000000, note:'Parents fly in from every continent. Future champions start here.'}];
+const acadOf = () => state.player.academy || null;
+function acadNet(){
+  const A = acadOf(); if(!A) return {inc:0, up:0};
+  const inc = (1500 + A.level*3500) * (1 + fame()/120) * (1 + (A.prestige||0)/100) * ms();
+  const up = A.level * 2000 * ms();
+  return {inc, up};
+}
+function foundAcademy(){
+  const P = state.player, c = ACAD_LEVELS[1].cost*ms(); if(acadOf() || P.money < c) return;
+  P.money -= c;
+  P.academy = {name:`${last(P.name)} Tennis Academy`, level:1, founded:state.season, prestige:0, grads:[], wins:0};
+  news(`${P.name} opens the ${P.academy.name}.`, true);
+  save(); render();
+}
+function upgradeAcademy(){
+  const P = state.player, A = acadOf(); if(!A || A.level>=5) return;
+  const c = ACAD_LEVELS[A.level+1].cost*ms(); if(P.money < c) return;
+  P.money -= c; A.level++; A.prestige = (A.prestige||0) + 4;
+  news(`The ${A.name} becomes a ${ACAD_LEVELS[A.level].name.toLowerCase()}.`, true);
+  save(); render();
+}
+function academyIntake(ny, lines){
+  const A = acadOf(); if(!A) return [];
+  const n = A.level>=3 ? 2 : 1, out = [];
+  for(let i=0;i<n;i++){
+    const rating = 50 + A.level*1.8 + rnd(0,4);
+    const a = makeFictional(ny, rating, ri(17,18));
+    a.pot = Math.min(95, 64 + A.level*3.2 + rnd(0,8) + (A.prestige||0)/25);
+    a.acad = true; a.country = R()<.5 ? state.player.country : a.country;
+    A.grads.push(a.id); out.push(a);
+  }
+  news(`${out.map(a=>a.name).join(' and ')} graduate${out.length>1?'':'s'} from the ${A.name} and turn pro.`, true);
+  return out;
+}
+function academyTitle(a, ev){
+  const A = acadOf(); if(!A || !a || !a.acad) return;
+  const T = TIERS[ev.tier]; if(T.rank<4) return;
+  A.wins = (A.wins||0) + 1; A.prestige = Math.min(100, (A.prestige||0) + (ev.tier==='SLAM'?12:T.rank>=6?5:2));
+  news(`${a.name}, a graduate of the ${A.name}, wins the ${evName(ev)}.`, true);
+}
+function renderAcademy(){
+  const P = state.player, A = acadOf(), s = ms();
+  if(!A){
+    const c = ACAD_LEVELS[1].cost*s, can = P.money >= c;
+    return `<div class="card"><div class="sechead"><h3>Start an academy</h3></div>
+      <p style="margin-bottom:10px">Open your own tennis academy. It earns money every week, makes your own training more effective, and turns out young players who join the tour. When your graduates win titles, the academy's name grows and so does its income.</p>
+      <div class="tsum" style="margin-bottom:14px"><div><span>Cost to open</span><b>${money(c)}</b><em>${ACAD_LEVELS[1].name}</em></div><div><span>Training bonus</span><b>+6%</b><em>per academy level</em></div><div><span>New graduates</span><b>1–2 a year</b><em>joining the tour each season</em></div></div>
+      <button class="btn primary" data-act="acad-found" ${can?'':'disabled'}>Open the ${esc(last(P.name))} Tennis Academy</button>${can?'':`<p class="muted" style="font-size:13px;margin-top:8px">You need ${money(c)} in the bank.</p>`}</div>`;
+  }
+  const L = ACAD_LEVELS[A.level], nx = ACAD_LEVELS[A.level+1], net = acadNet();
+  const grads = A.grads.map(id=>AI(id)).filter(Boolean).sort((x,y)=>(rankOf(x.id)||9999)-(rankOf(y.id)||9999));
+  const gone = A.grads.length - grads.length;
+  const rows = grads.length ? grads.map(g=>`<tr><td>${nameBtn(g.id, g.name)}</td><td class="mono">${esc(g.country)}</td><td class="n">${ageOf(g)}</td><td class="n">${rankOf(g.id)?'No. '+rankOf(g.id):'—'}</td><td class="n">${g.titles||0}${g.majors?` · ${g.majors} GS`:''}</td><td class="n">${ovr(g.attrs).toFixed(0)}</td></tr>`).join('') : `<tr><td colspan="6" class="muted">Your first graduates turn pro at the start of next season.</td></tr>`;
+  return `<div class="stack">
+    <div class="card"><div class="sechead"><h3>${esc(A.name)}</h3><span class="muted mono" style="font-size:12px">Founded ${A.founded}</span></div>
+      <div class="tsum">
+        <div><span>Level</span><b>${A.level} · ${esc(L.name)}</b><em>${esc(L.note)}</em></div>
+        <div><span>Prestige</span><b>${Math.round(A.prestige||0)} / 100</b><em>grows with graduates' titles</em></div>
+        <div><span>Weekly</span><b class="${net.inc-net.up>=0?'pos':'neg'}">${net.inc-net.up>=0?'+':'−'}${money(Math.abs(net.inc-net.up))}</b><em>fees ${money(net.inc)} · running costs ${money(net.up)}</em></div>
+        <div><span>Training bonus</span><b>+${A.level*6}%</b><em>on all your training</em></div>
+        <div><span>Graduates</span><b>${A.grads.length}</b><em>${A.wins||0} tour-level titles${gone?` · ${gone} retired`:''}</em></div>
+      </div>
+      ${nx ? `<div style="margin-top:14px" class="between"><span style="font-size:14px">Next: <b>${esc(nx.name)}</b> · ${esc(nx.note)} More fees, a bigger training bonus and better prospects.</span><button class="btn primary sm" data-act="acad-up" ${P.money>=nx.cost*s?'':'disabled'}>Upgrade · ${money(nx.cost*s)}</button></div>` : '<p class="muted" style="margin-top:12px">Your academy is at the top level.</p>'}
+    </div>
+    <div class="card"><h3>Graduates on tour</h3><div class="tbl"><table><thead><tr><th>Player</th><th>Nat</th><th class="n">Age</th><th class="n">Rank</th><th class="n">Titles</th><th class="n">OVR</th></tr></thead><tbody>${rows}</tbody></table></div></div>
+  </div>`;
+}
+
+/* ---------- tournament attendance ---------- */
+const weeksOff = () => state.absWeek - (state.player.lastEventAw ?? state.absWeek);
+function mustPlay(){
+  const P = state.player;
+  if(P.injured>0 || state.team || state.tour) return false;
+  if(weeksOff() < 3) return false;
+  const any = state.evs.some(ev=>eligibility(ev).type!=='no') || (state.laverPlan && state.laverPlan.invited && !state.laverPlan.played) || (state.davisPlan && state.davisPlan.userTie>=0 && !state.davisPlan.played);
+  return !!any;
+}
+
+/* ---------- trophy cabinet ---------- */
+const TROPHY_INFO = {
+  'Australian Open':{name:'Norman Brookes Challenge Cup', kind:'brookes'},
+  'Roland Garros':{name:'Coupe des Mousquetaires', kind:'mousq'},
+  'Wimbledon':{name:"Gentlemen's Singles Trophy", kind:'wimb'},
+  'US Open':{name:'US Open Trophy', kind:'usopen'},
+};
+function trophySVG(kind, metal){
+  const M = {gold:['#fff3b0','#e7b93b','#9a6a12'], silver:['#ffffff','#c9ced6','#6f7782'], bronze:['#ffd9b0','#c07a3d','#6d3b12'], crystal:['#f2fbff','#a9d8ee','#4d8aa8'], gilt:['#fff0c2','#d9a83a','#7f5510']}[metal||'silver'];
+  const id = 'g'+Math.floor(Math.random()*1e9).toString(36);
+  const defs = `<defs><linearGradient id="${id}" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="${M[2]}"/><stop offset=".35" stop-color="${M[0]}"/><stop offset=".6" stop-color="${M[1]}"/><stop offset="1" stop-color="${M[2]}"/></linearGradient><linearGradient id="${id}b" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3b2717"/><stop offset="1" stop-color="#1a110a"/></linearGradient></defs>`;
+  const f = `url(#${id})`, st = `stroke="${M[2]}" stroke-width="1"`;
+  const plinth = (w=46,h=16,y=120) => `<rect x="${50-w/2}" y="${y}" width="${w}" height="${h}" rx="2" fill="url(#${id}b)"/><rect x="${50-w/2+4}" y="${y+5}" width="${w-8}" height="5" rx="1" fill="${M[1]}" opacity=".6"/>`;
+  let body = '';
+  switch(kind){
+    case 'brookes': body = `${plinth()}<path d="M40 120 L60 120 L56 108 L44 108 Z" fill="${f}" ${st}/><rect x="46" y="92" width="8" height="17" fill="${f}"/><path d="M26 34 H74 L70 70 Q66 92 50 94 Q34 92 30 70 Z" fill="${f}" ${st}/><path d="M28 40 Q8 44 12 62 Q16 76 32 74" fill="none" stroke="${M[1]}" stroke-width="5"/><path d="M72 40 Q92 44 88 62 Q84 76 68 74" fill="none" stroke="${M[1]}" stroke-width="5"/><path d="M30 34 Q50 22 70 34 Z" fill="${f}" ${st}/><circle cx="50" cy="21" r="5" fill="${f}" ${st}/><path d="M34 50 H66" stroke="${M[2]}" stroke-width="1" opacity=".5"/>`; break;
+    case 'wimb': body = `${plinth()}<path d="M42 120 L58 120 L55 110 L45 110 Z" fill="${f}" ${st}/><rect x="47" y="94" width="6" height="17" fill="${f}"/><path d="M30 44 H70 Q70 88 50 96 Q30 88 30 44 Z" fill="${f}" ${st}/><path d="M31 50 Q14 50 16 66 Q18 80 35 80" fill="none" stroke="${M[1]}" stroke-width="4.5"/><path d="M69 50 Q86 50 84 66 Q82 80 65 80" fill="none" stroke="${M[1]}" stroke-width="4.5"/><path d="M28 44 Q50 32 72 44 Z" fill="${f}" ${st}/><ellipse cx="50" cy="26" rx="6.5" ry="8.5" fill="${f}" ${st}/><path d="M45 21 L55 31 M45 27 L55 25 M45 31 L55 21" stroke="${M[2]}" stroke-width=".8" opacity=".7"/><path d="M50 18 L46 10 M50 18 L50 8 M50 18 L54 10" stroke="${M[1]}" stroke-width="2.2" stroke-linecap="round"/><path d="M36 62 Q50 70 64 62" stroke="${M[2]}" fill="none" opacity=".45"/>`; break;
+    case 'mousq': body = `${plinth(56)}<path d="M36 120 L64 120 L58 106 L42 106 Z" fill="${f}" ${st}/><rect x="45" y="90" width="10" height="17" fill="${f}"/><path d="M20 40 H80 Q78 78 50 92 Q22 78 20 40 Z" fill="${f}" ${st}/><path d="M22 46 Q6 42 6 56 Q8 68 26 66" fill="none" stroke="${M[1]}" stroke-width="5"/><path d="M78 46 Q94 42 94 56 Q92 68 74 66" fill="none" stroke="${M[1]}" stroke-width="5"/><ellipse cx="50" cy="40" rx="30" ry="5" fill="${M[0]}" ${st}/><path d="M30 58 Q36 52 42 58 Q48 64 54 58 Q60 52 66 58 Q70 62 72 58" fill="none" stroke="${M[2]}" stroke-width="1.2" opacity=".6"/>`; break;
+    case 'usopen': body = `${plinth(40)}<path d="M42 120 L58 120 L55 110 L45 110 Z" fill="${f}" ${st}/><rect x="47" y="90" width="6" height="21" fill="${f}"/><path d="M36 22 H64 Q66 60 62 76 Q58 90 50 91 Q42 90 38 76 Q34 60 36 22 Z" fill="${f}" ${st}/><path d="M37 30 Q24 34 26 50 Q28 60 38 62" fill="none" stroke="${M[1]}" stroke-width="3.5"/><path d="M63 30 Q76 34 74 50 Q72 60 62 62" fill="none" stroke="${M[1]}" stroke-width="3.5"/><ellipse cx="50" cy="22" rx="14" ry="3.5" fill="${M[0]}" ${st}/><path d="M38 40 H62 M38 70 H62" stroke="${M[2]}" opacity=".5"/>`; break;
+    case 'davis': body = `<rect x="20" y="118" width="60" height="18" rx="2" fill="url(#${id}b)"/><rect x="26" y="106" width="48" height="13" rx="2" fill="url(#${id}b)"/><rect x="30" y="96" width="40" height="11" rx="2" fill="${f}" ${st}/><path d="M40 96 L60 96 L56 84 L44 84 Z" fill="${f}" ${st}/><path d="M12 48 H88 Q86 76 50 84 Q14 76 12 48 Z" fill="${f}" ${st}/><ellipse cx="50" cy="48" rx="38" ry="6" fill="${M[0]}" ${st}/><path d="M18 60 Q50 72 82 60" stroke="${M[2]}" fill="none" opacity=".5"/><path d="M24 66 Q30 60 36 66 Q42 72 48 66 Q54 60 60 66 Q66 72 72 66" stroke="${M[2]}" fill="none" opacity=".45"/>`; break;
+    case 'medal': body = `<path d="M34 8 L50 44 L66 8 Z" fill="#1d4fa3"/><path d="M40 8 L50 30 L60 8" fill="#d63c3c"/><circle cx="50" cy="78" r="30" fill="${f}" ${st}/><circle cx="50" cy="78" r="22" fill="none" stroke="${M[2]}" stroke-width="1.4" opacity=".7"/><path d="M42 78 a8 8 0 1 0 16 0 a8 8 0 1 0 -16 0" fill="none" stroke="${M[2]}" stroke-width="1.2" opacity=".6"/><path d="M36 70 Q50 60 64 70" fill="none" stroke="${M[0]}" stroke-width="1.5" opacity=".6"/>`; break;
+    case 'finals': body = `${plinth(44)}<path d="M40 120 H60 L56 104 H44 Z" fill="${f}" ${st}/><rect x="46" y="60" width="8" height="45" fill="${f}" ${st}/><circle cx="50" cy="40" r="22" fill="${f}" ${st}/><path d="M28 40 H72 M50 18 V62 M32 28 Q50 36 68 28 M32 52 Q50 44 68 52" stroke="${M[2]}" fill="none" opacity=".55"/>`; break;
+    case 'laver': body = `${plinth(40)}<path d="M50 10 L64 104 Q50 112 36 104 Z" fill="${f}" ${st}/><path d="M50 10 L50 106" stroke="${M[2]}" opacity=".5"/><path d="M43 60 Q50 54 57 60" stroke="${M[0]}" fill="none" opacity=".7"/>`; break;
+    case 'iq': body = `${plinth(44)}<path d="M50 12 L72 50 L50 112 L28 50 Z" fill="${f}" ${st}/><path d="M28 50 H72 M50 12 L42 50 L50 112 L58 50 Z" fill="none" stroke="${M[2]}" opacity=".6"/>`; break;
+    case 'masters': body = `${plinth(46)}<path d="M40 120 H60 L56 108 H44 Z" fill="${f}" ${st}/><rect x="46" y="86" width="8" height="23" fill="${f}"/><path d="M28 36 H72 Q70 74 50 88 Q30 74 28 36 Z" fill="${f}" ${st}/><path d="M30 44 Q16 46 18 60 Q20 70 34 70" fill="none" stroke="${M[1]}" stroke-width="4"/><path d="M70 44 Q84 46 82 60 Q80 70 66 70" fill="none" stroke="${M[1]}" stroke-width="4"/><ellipse cx="50" cy="36" rx="22" ry="4" fill="${M[0]}" ${st}/>`; break;
+    case 'plate': body = `${plinth(40)}<path d="M44 120 H56 L54 100 H46 Z" fill="${f}" ${st}/><circle cx="50" cy="58" r="38" fill="${f}" ${st}/><circle cx="50" cy="58" r="30" fill="none" stroke="${M[2]}" stroke-width="1.2" opacity=".6"/><circle cx="50" cy="58" r="12" fill="none" stroke="${M[2]}" stroke-width="1" opacity=".5"/>`; break;
+    case 'no1': body = `${plinth(44)}<rect x="42" y="40" width="16" height="80" fill="${f}" ${st}/><path d="M50 8 L56 24 L73 24 L59 34 L64 50 L50 40 L36 50 L41 34 L27 24 L44 24 Z" fill="${f}" ${st}/><text x="50" y="92" text-anchor="middle" font-family="Big Shoulders Display, Arial Narrow, sans-serif" font-weight="800" font-size="15" fill="${M[2]}">1</text>`; break;
+    default: body = `${plinth(36)}<path d="M44 120 H56 L54 110 H46 Z" fill="${f}" ${st}/><rect x="47" y="92" width="6" height="19" fill="${f}"/><path d="M34 52 H66 Q64 84 50 92 Q36 84 34 52 Z" fill="${f}" ${st}/><path d="M36 58 Q26 60 28 70 Q30 78 38 76" fill="none" stroke="${M[1]}" stroke-width="3"/><path d="M64 58 Q74 60 72 70 Q70 78 62 76" fill="none" stroke="${M[1]}" stroke-width="3"/>`;
+  }
+  return `<svg viewBox="0 0 100 140" aria-hidden="true">${defs}${body}</svg>`;
+}
+function trophyItem(kind, metal, title, ev, years, locked){
+  const n = years.length;
+  const yl = n ? (n>6 ? years.slice(0,6).join(' · ')+` +${n-6}` : years.join(' · ')) : '';
+  return `<div class="trophy ${locked?'locked':''}">${n>1?`<span class="cnt">×${n}</span>`:''}${trophySVG(kind, metal)}<b>${esc(title)}</b><span class="tev">${esc(ev)}</span>${n?`<span class="yr">${yl}</span>`:`<span class="yr">${locked?'Not won yet':''}</span>`}</div>`;
+}
+function renderTrophies(){
+  const P = state.player, T = P.stats.titles;
+  const yrs = pred => T.filter(pred).map(t=>t.year);
+  const shelf = (label, items, empty) => `<p class="shelf-label">${label}</p>${items.length ? `<div class="shelf">${items.join('')}</div>` : `<div class="shelf"><div class="none">${empty}</div></div>`}`;
+  const slams = ['Australian Open','Roland Garros','Wimbledon','US Open'].map(n=>{ const info = TROPHY_INFO[n], y = yrs(t=>t.tier==='SLAM' && t.name===n); return trophyItem(info.kind, n==='Wimbledon'?'gilt':'silver', info.name, n, y, !y.length); });
+  const byName = tier => { const m = {}; for(const t of T.filter(t=>t.tier===tier)) (m[t.name] = m[t.name] || []).push(t.year); return Object.entries(m).sort((a,b)=>b[1].length-a[1].length); };
+  const big = [];
+  const fin = yrs(t=>t.tier==='FIN'); if(fin.length) big.push(trophyItem('finals','silver','Tour Finals Trophy','Season-ending Finals', fin));
+  const no1 = P.seasons.filter(x=>x.rank===1).map(x=>x.year); if(no1.length) big.push(trophyItem('no1','gold','Year-end No. 1 Trophy','Finished the season as world No. 1', no1));
+  const dav = (P.stats.davisTies||[]).filter(d=>d.round==='Final' && d.won).map(d=>d.year); if(dav.length) big.push(trophyItem('davis','silver','The Davis Cup',`Won with ${cname(P.country)}`, dav));
+  const lav = P.stats.laver.filter(l=>l.won).map(l=>l.year); if(lav.length) big.push(trophyItem('laver','silver','Laver Cup','Team event', lav));
+  const iq = yrs(t=>t.tier==='IQ'); if(iq.length) big.push(trophyItem('iq','crystal','IQ Invitational Crown','Top 64 invitational', iq));
+  const medals = P.stats.medals.slice().sort((a,b)=>({Gold:0,Silver:1,Bronze:2}[a.medal]-{Gold:0,Silver:1,Bronze:2}[b.medal])).map(m=>trophyItem('medal', m.medal.toLowerCase(), `Olympic ${m.medal.toLowerCase()} medal`, `${m.city} ${m.year}${m.dbl?' · doubles':' · singles'}`, [], false).replace('<span class="yr"></span>',''));
+  const masters = byName('M1000').map(([n,y])=>trophyItem('masters','silver', `${n.replace(' Masters','')} Masters Trophy`, 'Masters 1000', y));
+  const tours = [...byName('A500').map(([n,y])=>trophyItem('plate','silver', `${n.replace(' 500','')} trophy`, '500 event', y)), ...byName('A250').map(([n,y])=>trophyItem('cup','silver', `${n.replace(' 250','')} trophy`, '250 event', y))];
+  const small = [...byName('CH').map(([n,y])=>trophyItem('cup','bronze', `${n.replace(' Challenger','')} Challenger`, 'Challenger', y)), ...byName('ITF').map(([n,y])=>trophyItem('cup','bronze', `${n.replace(' Futures','')} Futures`, 'Futures', y))];
+  const dbl = ((P.dbl&&P.dbl.titles)||[]).map(t=>trophyItem('cup','silver', `${t.name} doubles`, `with ${t.partner}`, [t.year]));
+  const total = T.length + medals.length + dav.length + lav.length;
+  return `<div class="stack">
+    <div class="cabinet"><h3>Trophy cabinet</h3><p class="ch">${esc(P.name)} · ${T.length} title${T.length===1?'':'s'}${medals.length?` · ${medals.length} Olympic medal${medals.length>1?'s':''}`:''}${dav.length?` · ${dav.length} Davis Cup${dav.length>1?'s':''}`:''}${lav.length?` · ${lav.length} Laver Cup${lav.length>1?'s':''}`:''}. Illustrations, not photos.</p>
+      ${shelf('Grand Slams', slams, '')}
+      ${shelf('Finals, team events and honours', big, 'The Tour Finals, the Davis Cup, the Laver Cup, the IQ Invitational and the year-end No. 1 trophy will stand here.')}
+      ${shelf('Olympic medals', medals, 'Tennis is at the Olympics every four years from 1988.')}
+      ${shelf('Masters 1000', masters, 'Each Masters title gets its own trophy here.')}
+      ${shelf('500 and 250 titles', tours, 'Tour-level titles from 250 and 500 events.')}
+      ${shelf('Challengers and Futures', small, total ? 'No Challenger or Futures titles.' : 'Your first trophy is waiting. Futures titles count too.')}
+      ${dbl.length ? shelf('Doubles', dbl, '') : ''}
+    </div>
+  </div>`;
+}
+
 function schedLog(){ if(!state.sched || state.sched.year!==state.season) state.sched = {year:state.season, champs:{}, mine:{}}; return state.sched; }
 function renderSchedule(){
   const P = state.player, off = ui.schedYear||0, y = state.season + off, all = !!ui.schedAll, log = schedLog();
@@ -3128,7 +3398,7 @@ function renderSchedule(){
       }
       const extra = e.weeks===2 ? '<span class="res">2 weeks</span>' : '';
       const pts = e.tier==='OLY' ? (e.noPts?'No points':`${T.pts[0]} pts`) : `${T.pts[0]} pts`;
-      return `<div class="sev s-${e.surface}"><span class="surf"><i></i></span><span class="nm">${esc(evName(e))}</span><span class="tb">${esc(tierShort(e.tier))}</span><span class="res">${SURF[e.surface]?.name||e.surface} · ${pts}</span>${extra}${res}</div>`;
+      return `<div class="sev s-${e.surface} ${e.tier==='SLAM'?'slam':''}"><span class="surf"><i></i></span><span class="nm">${esc(evName(e))}</span><span class="tb">${esc(tierShort(e.tier))}</span><span class="res">${SURF[e.surface]?.name||e.surface} · ${pts}</span>${extra}${res}</div>`;
     });
     if(w===LAVER_WEEK && laverCity(y)){
       const L = off===0 ? state.laverPlan : null;
@@ -3141,7 +3411,7 @@ function renderSchedule(){
       items.push(`<div class="sev s-hard"><span class="surf"><i></i></span><span class="nm">Davis Cup ${DAVIS_ROUNDS[dvi].toLowerCase()}</span><span class="tb">Team</span><span class="res">16 nations · no ranking points</span>${alive ? `<span class="pill main">${esc(cname(P.country))} still in</span>` : ''}</div>`);
     }
     const cont = w>1 ? weekEvents(w-1, y).filter(e=>e.weeks===2 && (all || TIERS[e.tier].rank>=4)) : [];
-    for(const e of cont) items.unshift(`<div class="sev s-${e.surface}"><span class="surf"><i></i></span><span class="res"><b>${esc(evName(e))}</b> continues, second week</span></div>`);
+    for(const e of cont) items.unshift(`<div class="sev s-${e.surface} ${e.tier==='SLAM'?'slam':''}"><span class="surf"><i></i></span><span class="res"><b>${esc(evName(e))}</b> continues, second week</span></div>`);
     if(!items.length) items.push(`<div class="sev"><span class="res">${w>50 ? 'Off-season' : (all ? 'No events' : 'Challengers and Futures only')}</span></div>`);
     const m = new Date(Date.UTC(y,0,1+(w-1)*7)).getUTCMonth();
     (byMonth[m] = byMonth[m] || []).push(`<div class="srow ${past?'past':''} ${now?'now':''}"><div class="wk"><b>W${w}</b>${weekDate(y,w)}${now?'<br><span style="color:var(--accent);font-weight:600">This week</span>':''}</div><div class="sevs">${items.join('')}</div></div>`);
@@ -3274,6 +3544,8 @@ function weeklyUpkeep(lines){
   P.money -= cc + living + staffCost;
   lines.push(`Living costs (${L.name.toLowerCase()}) <span class="neg">−${money(living)}</span>${cc?` · coach <span class="neg">−${money(cc)}</span>`:''}${staffCost?` · support staff <span class="neg">−${money(staffCost)}</span>`:''}`);
   if(P.money<0){ const int = Math.max(10*s, -P.money*.005); P.money -= int; lines.push(`You are in debt. Interest <span class="neg">−${money(int)}</span>`); }
+  { const A = acadOf(); if(A){ const n = acadNet(); P.money += n.inc - n.up; lines.push(`${esc(A.name)} <span class="${n.inc-n.up>=0?'pos':'neg'}">${n.inc-n.up>=0?'+':'−'}${money(Math.abs(n.inc-n.up))}</span>`); A.prestige = Math.min(100, (A.prestige||0) + A.level*.02); } }
+  if(P.injured>0 || state.week>50) P.lastEventAw = state.absWeek + 1;
   const en = endorseWeekly();
   if(en){ P.money += en; P.stats.endorse += en; lines.push(`Endorsements <span class="pos">+${money(en)}</span>`); }
   const age = ageOf(P);
@@ -3295,10 +3567,22 @@ function weeklyUpkeep(lines){
     if(age>=31) for(const k of ['srv','ret','fh','bh','net']) P.attrs[k] = Math.max(30, P.attrs[k] - .01*(age-30)*rnd(.5,1.5));
   }
 }
+function dudesKeepPace(){
+  const P = state.player; if(state.era!=='dudes' || !P.dude) return;
+  const po = ovr(P.attrs);
+  for(const a of state.ai){ if(!a.dude) continue;
+    a.dOff = clamp((a.dOff ?? rnd(-2,2)) + rnd(-.3,.3), -2.5, 2.5);
+    const cur = ovr(a.attrs), want = Math.max(po - 3, po + a.dOff);
+    let d = (want - cur) * .3;
+    if(cur + d < po - 3) d = (po - 3) - cur;
+    if(Math.abs(d) > .001) shiftAttrs(a.attrs, d);
+  }
+}
 function aiWeekly(){
+  dudesKeepPace();
   for(const a of state.ai){
     if(a.inj>0) a.inj--; else if(R()<.004) a.inj = ri(2,8);
-    if(a.target && ageOf(a)<=28){ const gap = Math.max(0, ovr(a.target)-ovr(a.attrs)); const g = rnd(.06,.11)*(.55 + gap/39*.9); for(const [k] of ATTRS) a.attrs[k] = Math.min(a.target[k], a.attrs[k]+g); }
+    if(a.target && ageOf(a)<=28 && !(state.era==='dudes' && state.player.dude && a.dude)){ const gap = Math.max(0, ovr(a.target)-ovr(a.attrs)); const g = rnd(.06,.11)*(.55 + gap/39*.9); for(const [k] of ATTRS) a.attrs[k] = Math.min(a.target[k], a.attrs[k]+g); }
   }
 }
 function advance(n, playedId, lines=[]){
@@ -3318,6 +3602,7 @@ function advance(n, playedId, lines=[]){
   flushStory(lines);
   lines.push(`Ranking: ${rk?'No. '+rk:'unranked'} · ${state.rankPts.you||0} pts`);
   if(ui.report) ui.report.lines = ui.report.lines.concat(lines); else ui.report = {title:'Week report', lines};
+  ui.reportOpen = false;
   save();
 }
 function retireAI(a, retired){
@@ -3375,6 +3660,7 @@ function seasonRollover(){
   const have = new Set(keep.filter(a=>a.real).map(a=>a.real.i));
   const arrivals = [];
   for(const r of ROSTER){ if(r.fr===ny && !have.has(r.i) && activeIn(r, ny)){ keep.push(makeReal(r, ny)); if(r.pk<=10) arrivals.push(r.n); } }
+  for(const g of academyIntake(ny)) keep.push(g);
   while(keep.length < 300) keep.push(makeFictional(ny, rnd(55,64), ri(18,19)));
   state.ai = keep; aiMap = null;
   if(retired.length) news(`Retirements: ${retired.join(', ')}.`);
@@ -3406,9 +3692,9 @@ function eligibility(ev){
 }
 function train(focus){
   const P = state.player;
-  if(P.injured>0) return;
+  if(P.injured>0 || mustPlay()) return;
   const c = coachOf();
-  const mult = COACHES[P.coach].mult * (P.trait==='learner'?1.25:1) * (P.boost||1) * (c&&c.pers==='taskmaster'?1.15:1) * (c&&c.pers==='mentor'&&ageOf(P)<=22?1.2:1), af = ageFactor(ageOf(P));
+  const mult = COACHES[P.coach].mult * (P.trait==='learner'?1.25:1) * (P.boost||1) * (c&&c.pers==='taskmaster'?1.15:1) * (c&&c.pers==='mentor'&&ageOf(P)<=22?1.2:1) * (acadOf()?1+acadOf().level*.06:1), af = ageFactor(ageOf(P));
   const keys = focus==='all' ? ATTRS.map(a=>a[0]) : [focus];
   const parts = [];
   for(const k of keys){
@@ -3432,6 +3718,7 @@ function train(focus){
 }
 const overtrainRisk = n => n<2 ? 0 : Math.min(.8, .2 + (n-2)*.15);
 function rest(){
+  if(mustPlay()) return;
   const P = state.player, before = P.fatigue;
   P.fatigue = clamp(P.fatigue-20, 0, 100); P.tourStreak = 0; P.trainStreak = 0;
   ui.report = {title:`Week ${state.week}: rest`, lines:[P.injured>0 ? 'Rehab week with the physio.' : `Rested at home. Fatigue ${Math.round(before)} → ${Math.round(Math.max(0,P.fatigue-12))}.`]};
@@ -3475,7 +3762,7 @@ function enterEvent(evId){
   t.alive = t.draw.slice();
   if(t.stage==='qual'){ for(let i=0;i<T.qr;i++){ t.qOpps.push(makeFiller(t,[T.qfill[0]+i*1.2, T.qfill[1]+i*1.2])); } }
   const TRAVEL_FAT = {SLAM:6, OLY:5, M1000:5, FIN:3, A500:4, A250:3, CH:3, ITF:2};
-  const P0 = state.player; P0.tourStreak = (P0.tourStreak||0) + 1; P0.trainStreak = 0;
+  const P0 = state.player; P0.tourStreak = (P0.tourStreak||0) + 1; P0.trainStreak = 0; P0.lastEventAw = state.absWeek;
   P0.fatigue = clamp(P0.fatigue + (TRAVEL_FAT[ev.tier]||3) + Math.max(0, P0.tourStreak-2)*3, 0, 100);
   t.cond = rollCond(ev);
   { const de = dblEntry(ev); if(de.ok){ let pid = de.partner ? de.partner.id : null; if(!pid){ pid = makeFiller(t, T.fill); t.extras[pid].country = state.player.country; } buildDblDraw(t, pid); } }
@@ -3736,10 +4023,12 @@ function finishMatch(){
     if(won){
       t.qRound++;
       if(t.qRound===T.qr){ t.stage='main'; replaceQ(t, 'you'); }
+      P.fatigue = clamp(P.fatigue - roundRecovery(), 0, 100);
       if(injured){ t.withdrew = true; if(t.stage==='qual'){ t.userOut = true; replaceQ(t, makeFiller(t, T.qfill)); simOut(t); } else { resolveRound(t,false); simOut(t); } }
     } else { t.userOut = true; replaceQ(t, makeFiller(t, T.qfill)); simOut(t); }
   } else {
     resolveRound(t, won);
+    if(won && !t.userOut && !t.champion) P.fatigue = clamp(P.fatigue - roundRecovery(), 0, 100);
     if(won && injured && !t.champion){ t.withdrew = true; resolveRound(t,false); }
     if(t.userOut) simOut(t);
     if(injured && t.bronzePending){ t.bronzePending = false; t.bronze = t.sf.find(x=>x!=='you'); }
@@ -3758,7 +4047,9 @@ function withdraw(){
   save(); render();
 }
 /* fatigue floor after a tournament, by how far you went: champion, runner-up, SF, QF, R16, R32, earlier rounds, qualifying loss */
-const DEPTH_FAT = [75, 60, 45, 35, 25, 15, 10, 8];
+const DEPTH_FAT = [55, 45, 35, 26, 18, 12, 8, 6];
+const TIER_FAT = {SLAM:1, OLY:1, M1000:.85, FIN:.85, IQ:.85, A500:.75, A250:.65, CH:.55, ITF:.5};
+const roundRecovery = () => 5 + (staffTier('physio') ? staffTier('physio').rec/2 : 0) + (state.player.trait==='iron' ? 2 : 0);
 function tourOutcome(t){
   const T = TIERS[t.ev.tier], Rn = Math.log2(T.draw), s = ms(), ev = t.ev;
   const q = t.type==='qual' ? T.qPts : 0;
@@ -3815,13 +4106,14 @@ function finishTournament(){
   ui.report = {title:name, lines};
   const playedId = ev.id;
   state.tour = null;
-  advance(long?2:1, playedId, []);
-  const dIdx = o.idx<0 ? DEPTH_FAT.length-1 : Math.min(o.idx, DEPTH_FAT.length-2), dFat = DEPTH_FAT[dIdx];
+  const dIdx = o.idx<0 ? DEPTH_FAT.length-1 : Math.min(o.idx, DEPTH_FAT.length-2), dFat = Math.round(DEPTH_FAT[dIdx]*(TIER_FAT[ev.tier]||.7));
   if(P.fatigue < dFat){
     P.fatigue = dFat;
-    const why = o.idx===0 ? (ev.tier==='OLY'?'Chasing gold':'Winning the title') + ' took everything out of you' : o.idx===1 ? 'Going all the way to the final wore you down' : o.idx===2 ? 'A deep run to the semifinals has taken its toll' : o.idx===3 ? 'A quarterfinal run leaves you tired' : 'The week on the road still takes something out of you';
-    ui.report.lines.push(`<b>${why}. Fatigue is now ${dFat}.</b>${dFat>=45?' Consider a rest week before your next event.':''}`);
+    const why = o.idx===0 ? (ev.tier==='OLY'?'Chasing gold':'Winning the title') + ' took a lot out of you' : o.idx===1 ? 'Going all the way to the final wore you down' : o.idx===2 ? 'A deep run to the semifinals has taken its toll' : o.idx===3 ? 'A quarterfinal run leaves you tired' : 'The week on the road still takes something out of you';
+    lines.push(`<b>${why}. Fatigue ${dFat} at the end of the event.</b>`);
   }
+  advance(long?2:1, playedId, []);
+  ui.report.lines.push(`After recovering, you go into next week at <b>${Math.round(P.fatigue)} fatigue</b>${P.fatigue>=50?'. That is heavy, so think about a rest week.':P.fatigue>=35?'. Playable, but you will feel it.':'. Good to go.'}`);
   if(dres && dres.fat){ P.fatigue = clamp(P.fatigue + dres.fat, 0, 100); ui.report.lines.push(`Doubles added ${dres.fat} fatigue. You are now at ${Math.round(P.fatigue)}.`); }
   { const c = coachOf();
     if(c && c.pers!=='mentor' && o.idx===0 && T.rank>=(c.pers==='star'?5:6) && !state.offcourt && (state.absWeek-(c.raisedAw??-99))>26 && R()<(c.pers==='star'?.8:.45)){
@@ -3930,8 +4222,9 @@ function renderTop(){
   const P = state.player, rk = rankOf('you'), f = fatigueMeter(P.fatigue);
   const wk = state.team ? (state.team.kind==='davis' ? 'Davis Cup' : 'Laver Cup') : state.tour ? 'Tournament' : 'This week';
   const nOff = P.offers.filter(o=>o.exp>state.absWeek).length;
-  const tabs = [['week', wk], ['player','Player'], ['sponsors', `Sponsors${nOff?` (${nOff})`:''}`], ['schedule','Schedule'], ['rank','Rankings'], ['history','History'], ['career','Career'], ['saves','Saves']];
-  return `<header class="topbar"><div class="inner">
+  const tabs = [['week', wk], ['player','Player'], ['sponsors', `Sponsors${nOff?` (${nOff})`:''}`], ['schedule','Schedule'], ['rank','Rankings'], ['history','History'], ['trophies','Trophies'], ['career','Career'], ['saves','Saves']];
+  const hubTop = ui.tab==='week' && !state.team && !state.tour && !state.match;
+  return `<header class="topbar ${hubTop?'hubtop':''}"><div class="inner">
     <div class="brand"><i></i>Baseline Tour<button class="replaybtn" data-act="replay-intro" title="Replay the intro">▶ Intro</button></div>
     <div class="plate">
       <div><span>Player</span><b>${esc(P.name)} · ${esc(P.country)}</b></div>
@@ -3949,7 +4242,7 @@ function evCard(ev){
   const T = TIERS[ev.tier], el = eligibility(ev), s = ms();
   const pill = el.type==='main' ? `<span class="pill main">${ev.tier==='OLY'?'Selected':'Main draw'}</span>` : el.type==='qual' ? `<span class="pill qual">Qualifying · ${T.qr} rds</span>` : `<span class="pill no">${esc(el.why)}</span>`;
   const reward = ev.tier==='OLY' ? `Gold medal${ev.noPts?', no ranking points':`, ${T.pts[0]} pts`}` : `Winner ${T.pts[0]} pts, ${money(T.prize[0]*s)}`;
-  return `<div class="ev s-${ev.surface}">
+  return `<div class="ev s-${ev.surface} ${ev.tier==='SLAM'?'slam':''}">
     <div class="tierbadge">${tierShort(ev.tier)}<small>${T.draw} draw</small></div>
     <div><div class="name">${esc(evName(ev))}</div>
       <div class="meta"><span class="surf"><i></i>${SURF[ev.surface].name}</span> · Best of ${T.bo} · ${reward}${ev.weeks===2?' · 2 weeks':''}${T.travel?` · Travel ${money(T.travel*s*TRAVEL_MULT)}`:''}</div>${(()=>{ const D = dblState(); if(!DBL_TIERS[ev.tier] || !D.on) return ''; const de = dblEntry(ev); return `<div class="meta" style="margin-top:2px">${de.ok ? `Doubles with ${esc(de.partner ? de.partner.name : 'a partner from your country')} too` : `No doubles: ${esc(de.why.toLowerCase())}`}</div>`; })()}</div>
@@ -3963,56 +4256,98 @@ function laverCard(){
   return `<div class="ev s-indoor"><div class="tierbadge">Laver<small>team event</small></div><div><div class="name">Laver Cup, ${esc(L.city)}</div><div class="meta">You are picked for ${side}. Three days, 1, 2 and 3 points per match, first to 13. Appearance fee plus ${money(250000*ms())} each for the winners. No ranking points.</div></div><div class="right"><span class="pill main">Invited</span><button class="btn primary sm" data-act="laver" ${state.player.injured?'disabled':''}>Join team</button></div></div>`;
 }
 
+function stripTags(h){ return String(h).replace(/<[^>]*>/g,''); }
+function hubFlags(){
+  const P = state.player, f = [];
+  if(mustPlay()) f.push(`<span class="flag bad">Must play this week</span>`);
+  else if(!P.injured && weeksOff()===2) f.push(`<span class="flag warn">Next week you must play</span>`);
+  if(P.injured) f.push(`<span class="flag bad">Injured · ${P.injured} wk</span>`);
+  if(P.fatigue>=65) f.push(`<span class="flag bad">Running on fumes</span>`);
+  if((P.tourStreak||0)>=3) f.push(`<span class="flag warn">${P.tourStreak} events in a row</span>`);
+  if((P.trainStreak||0)>=2) f.push(`<span class="flag warn">Overtraining risk</span>`);
+  if(P.money<0) f.push(`<span class="flag bad">In debt ${money(-P.money)}</span>`);
+  const nOff = P.offers.filter(o=>o.exp>state.absWeek).length;
+  if(nOff) f.push(`<button class="flag link" data-act="tab" data-v="sponsors">${nOff} sponsor offer${nOff>1?'s':''} →</button>`);
+  return f.join('');
+}
+function tourCardBig(ev){
+  const T = TIERS[ev.tier], el = eligibility(ev), s = ms();
+  const pill = el.type==='main' ? `<span class="pill main">${ev.tier==='OLY'?'Selected':'Main draw'}</span>` : el.type==='qual' ? `<span class="pill qual">Qualifying · ${T.qr} rds</span>` : `<span class="pill no">${esc(el.why)}</span>`;
+  const prize = ev.tier==='OLY' ? `<b>Gold medal</b><span>${ev.noPts?'no ranking points':T.pts[0]+' pts'}</span>` : `<b>${money(T.prize[0]*s)}</b><span>and ${T.pts[0]} pts to the winner</span>`;
+  const D = dblState(); let dbl = '';
+  if(DBL_TIERS[ev.tier] && D.on){ const de = dblEntry(ev); dbl = `<div class="facts">${de.ok ? `Doubles with ${esc(de.partner ? de.partner.name : 'a partner from your country')} too` : `No doubles: ${esc(de.why.toLowerCase())}`}</div>`; }
+  return `<div class="tc s-${ev.surface} ${ev.tier==='SLAM'?'slam':''} ${el.type==='no'?'no':''}"><div class="tband"></div><div class="tcb">
+    <div class="tct"><span class="tier">${esc(ev.tier==='SLAM'?'Grand Slam':T.label==='Masters'?'Masters 1000':tierShort(ev.tier)==='Finals'?'Tour Finals':T.label)}</span>${pill}</div>
+    <div class="nm">${esc(evName(ev))}</div>
+    <div class="facts"><span><i class="dt"></i>${SURF[ev.surface].name}</span><span>Best of ${T.bo}</span><span>${T.draw} draw</span>${ev.weeks===2?'<span>2 weeks</span>':''}</div>
+    <div class="prize">${prize}</div>${dbl}
+    <div class="tcf"><span class="muted" style="font-size:12.5px">${T.travel?`Travel ${money(T.travel*s*TRAVEL_MULT)}`:'No travel cost'}</span><button class="btn ${el.type==='no'?'':'primary'}" data-act="enter" data-v="${ev.id}" ${el.type==='no'?'disabled':''}>${el.type==='qual'?'Enter qualifying':'Enter'}</button></div>
+  </div></div>`;
+}
+function tourRowSmall(ev){
+  const T = TIERS[ev.tier], el = eligibility(ev), s = ms();
+  const st = el.type==='main' ? '<b class="ok" style="display:inline;font-size:12px">Main draw</b>' : el.type==='qual' ? '<b class="q" style="display:inline;font-size:12px">Qualifying</b>' : esc(el.why);
+  return `<div class="tr s-${ev.surface}"><i></i><div style="min-width:0"><b>${esc(evName(ev))}</b><span>${tierShort(ev.tier)} · ${SURF[ev.surface].name} · ${T.pts[0]} pts · ${money(T.prize[0]*s)}</span><span>${st}</span></div><button class="btn ${el.type==='no'?'':'primary'} sm" data-act="enter" data-v="${ev.id}" ${el.type==='no'?'disabled':''}>Enter</button></div>`;
+}
 function renderHub(){
-  const P = state.player, f = fatigueMeter(P.fatigue);
+  const P = state.player, rk = rankOf('you');
+  const fc = P.fatigue<40?'#6fd48f':P.fatigue<65?'#e0ad45':'#e3685e', fw = fatigueMeter(P.fatigue).word;
+  const locked = mustPlay();
   const evs = state.evs.slice().sort((a,b)=>TIERS[b.tier].rank-TIERS[a.tier].rank);
-  const upcoming = [];
+  const big = evs.filter(e=>TIERS[e.tier].rank>=4), small = evs.filter(e=>TIERS[e.tier].rank<4);
+  // header
+  const form = P.form.slice(-5);
+  const head = `<div class="wk-head">
+    <div><p class="eyebrow">Season ${state.season} · Week ${state.week} of 52 · ${esc(eraOf(state.era).name)}</p><h2>Week of ${weekDate(state.season,state.week)}</h2></div>
+    <div class="wk-stats">
+      <div><span class="k">Rank</span><b>${rk?'No. '+rk:'—'}</b><em>${state.rankPts.you||0} pts</em></div>
+      <div><span class="k">Fatigue</span><b>${Math.round(P.fatigue)}</b><div class="fbar"><i style="width:${clamp(P.fatigue,3,100)}%;background:${fc}"></i></div><em>${fw}</em></div>
+      <div><span class="k">Form</span><div class="dots">${form.length?form.map(r=>`<i class="${r}" title="${r==='W'?'Win':'Loss'}"></i>`).join(''):''}${form.length<5?'<i></i>'.repeat(5-form.length):''}</div><em>Season ${P.season.w}–${P.season.l}</em></div>
+      <div><span class="k">Bank</span><b>${money(P.money)}</b><em>OVR ${ovr(P.attrs).toFixed(1)} · age ${ageOf(P)}</em></div>
+    </div>
+    ${hubFlags() ? `<div class="wk-flags">${hubFlags()}</div>` : ''}
+  </div>`;
+  // report
+  let report = '';
+  if(ui.report){
+    const first = stripTags(ui.report.lines[0]||'');
+    report = `<div class="wk-rep"><div class="top"><div class="sum"><b>${esc(ui.report.title)}</b>${ui.reportOpen?'':`<span>${esc(first)}${ui.report.lines.length>1?` · +${ui.report.lines.length-1} more`:''}</span>`}</div><button class="minibtn" data-act="rep-toggle">${ui.reportOpen?'Hide':'Details'}</button><button class="minibtn" data-act="dismiss" aria-label="Dismiss">✕</button></div>
+      ${ui.reportOpen?`<ul>${ui.report.lines.map(l=>`<li>${l}</li>`).join('')}</ul>`:''}</div>`;
+  }
+  // choices
+  const coach = COACHES[P.coach], focusName = ui.focus==='all' ? 'All-round' : attrName(ui.focus);
+  const nPlay = evs.filter(e=>eligibility(e).type!=='no').length + ((state.laverPlan&&state.laverPlan.invited&&!state.laverPlan.played)?1:0) + ((state.davisPlan&&state.davisPlan.userTie>=0&&!state.davisPlan.played)?1:0);
+  const ts = P.trainStreak||0;
+  const choices = `<div class="wk-choices">
+    <div class="choice ${locked?'hot':''}"><h4>Play</h4><p>${nPlay?`${nPlay} event${nPlay>1?'s':''} you can enter this week`:(evs.length?'Nothing you can enter this week':'Off-season, no events')}</p><a class="btn primary" href="#wk-events" style="text-decoration:none">See events</a></div>
+    <div class="choice"><h4>Train</h4><p>${locked?'Locked until you play':P.injured?'Not while injured':`${esc(focusName)} · ${esc(coachName())}${ts>=2?` · <span class="neg">${Math.round(overtrainRisk(ts)*100)}% injury risk</span>`:ts===1?' · one more week is safe':''}`}</p>${locked||P.injured?'':`<button class="lnk" data-act="focus-toggle">${ui.showFocus?'Hide focus':'Change focus'}</button>`}<button class="btn ${ts>=2?'danger':''}" data-act="train" ${P.injured||locked?'disabled':''}>${ts>=2?'Train anyway':'Train'}</button></div>
+    <div class="choice"><h4>Rest</h4><p>${locked?'Locked until you play':P.injured?'Counts as rehab':'Recover about 29 fatigue'}</p><button class="btn" data-act="rest" ${locked?'disabled':''}>Rest</button></div>
+  </div>`;
+  const focusPanel = ui.showFocus && !locked && !P.injured ? `<div class="focuspanel"><p class="muted" style="font-size:12.5px;margin:0 0 8px">Pick what to work on. ${esc(coachName())} · ×${coach.mult}${P.trait==='learner'?' · quick learner ×1.25':''}. Focused work raises one skill; all-round nudges every skill.</p><div class="chips">${ATTRS.map(([k,l])=>`<button class="chip ${ui.focus===k?'on':''}" data-act="focus" data-v="${k}">${l} ${Math.round(P.attrs[k])}</button>`).join('')}<button class="chip ${ui.focus==='all'?'on':''}" data-act="focus" data-v="all">All-round</button></div></div>` : '';
+  // events
+  const team = davisCard() + laverCard();
+  const events = `<div id="wk-events"><div class="sect"><h3>This week's tournaments</h3><span>${evs.length} event${evs.length===1?'':'s'}</span></div>
+    ${team ? `<div class="evs" style="margin-bottom:10px">${team}</div>` : ''}
+    ${big.length ? `<div class="tcs">${big.map(tourCardBig).join('')}</div>` : ''}
+    ${small.length ? `<p class="eyebrow" style="margin:14px 2px 8px">Challengers and Futures</p><div class="trs">${small.map(tourRowSmall).join('')}</div>` : ''}
+    ${!evs.length && !team ? `<div class="card"><p class="muted">No tournaments this week. It is the off-season, so it is a good time to train.</p></div>` : ''}
+  </div>`;
+  // coming up timeline
+  const tl = [];
   for(let i=1;i<=8;i++){
     let w = state.week+i, y = state.season; if(w>52){ w-=52; y++; }
     const tour = weekEvents(w, y).filter(e=>TIERS[e.tier].rank>=4);
     const dvi = y===state.season && state.davis && !state.davis.winner ? DAVIS_WEEKS.indexOf(w) : -1;
-    const lv = (w===LAVER_WEEK && laverCity(y) ? `<span class="surf s-indoor"><i></i>Laver Cup ${esc(laverCity(y))}</span>` : '') + (dvi>=state.davis?.round && state.davis.alive.includes(state.player.country) ? `<span class="surf s-hard"><i></i>Davis Cup ${DAVIS_ROUNDS[dvi].toLowerCase()}</span>` : '');
-    upcoming.push(`<div><span class="wk">W${w}</span><span class="e">${tour.length||lv ? tour.map(e=>`<span class="surf s-${e.surface}"><i></i>${esc(evName(e))}</span>`).join('')+lv : '<span class="muted">Challengers and Futures only</span>'}</span></div>`);
+    const items = tour.map(e=>`<div class="tle s-${e.surface} ${e.tier==='SLAM'?'slam':''}">${esc(evName(e))}</div>`);
+    if(w===LAVER_WEEK && laverCity(y)) items.push(`<div class="tle s-indoor">Laver Cup</div>`);
+    if(dvi>=0 && dvi>=(state.davis?.round??0) && state.davis?.alive?.includes(P.country)) items.push(`<div class="tle s-hard">Davis Cup ${DAVIS_ROUNDS[dvi].toLowerCase()}</div>`);
+    tl.push(`<div class="tlw"><span class="w">W${w}</span><span class="d">${weekDate(y,w)}</span>${items.length?items.join(''):`<div class="tle none">${w>50?'Off-season':'Challengers and Futures'}</div>`}</div>`);
   }
-  const report = ui.report ? `<div class="card report"><div class="between"><h3 style="margin:0">${esc(ui.report.title)}</h3><button class="btn sm" data-act="dismiss">Dismiss</button></div><ul>${ui.report.lines.map(l=>`<li>${l}</li>`).join('')}</ul></div>` : '';
-  const warn = P.fatigue>=65 ? `<p class="neg" style="font-size:14px">You are running on fumes. Playing like this lowers your level and raises the risk of injury.</p>` : '';
-  const nOff = P.offers.filter(o=>o.exp>state.absWeek).length;
-  const offerNote = nOff ? `<div class="card report" style="border-left-color:var(--warn)"><div class="between"><span><b>${nOff} sponsorship offer${nOff>1?'s':''}</b> waiting on your agent's desk.</span><button class="btn sm" data-act="tab" data-v="sponsors">Review offers</button></div></div>` : '';
-  const coach = COACHES[P.coach];
+  const coming = `<div class="card"><div class="sect" style="margin-top:0"><h3>Coming up</h3><button class="minibtn" data-act="tab" data-v="schedule">Full schedule</button></div><div class="tl">${tl.join('')}</div></div>`;
+  const newsCard = `<div class="card newsx ${ui.newsMore?'more':''}"><div class="sect" style="margin-top:0"><h3>Tour news</h3>${state.news.length>5?`<button class="minibtn" data-act="news-more">${ui.newsMore?'Less':'More'}</button>`:''}</div><div class="news">${state.news.slice(0,15).map(n=>`<div><span class="when">${n.w}</span><span class="${n.you?'you':''}">${esc(n.t)}</span></div>`).join('')}</div></div>`;
   return `<div class="hub">
-    <div class="stack">
-      <div class="weekhead"><div><p class="eyebrow">Season ${state.season} · Week ${state.week} of 52 · ${esc(eraOf(state.era).name)} era</p><h2>Week of ${weekDate(state.season,state.week)}, ${state.season}</h2></div></div>
-      ${report}${offerNote}
-      ${(P.tourStreak||0)>=3?`<p class="neg" style="font-size:14px">You have played ${P.tourStreak} tournaments in a row. Every extra week on the road adds more fatigue. A rest or training week resets it.</p>`:''}
-      ${P.money<0?`<p class="neg" style="font-size:14px">You are ${money(-P.money)} in debt and paying 0.5% interest every week. Cheaper living or a few good results will help.</p>`:''}
-      <div class="status">
-        <div class="stat"><span class="k">Fatigue</span><span class="val">${Math.round(P.fatigue)}</span>${f.bar}<span class="muted" style="font-size:12px">${f.word}${P.injured?` · <span class="neg">Injured ${P.injured} wk</span>`:''}</span></div>
-        <div class="stat"><span class="k">Overall</span><span class="val">${ovr(P.attrs).toFixed(1)}</span><span class="muted" style="font-size:12px">${STYLES[P.style].name} · age ${ageOf(P)}</span></div>
-        <div class="stat"><span class="k">Form</span><div class="form">${P.form.length?P.form.slice(-8).map(r=>`<span class="${r}">${r}</span>`).join(''):'<span class="none">No matches yet</span>'}</div><span class="muted" style="font-size:12px">Season ${P.season.w}–${P.season.l}</span></div>
-      </div>
-      ${warn}
-      <div><h3 style="margin-bottom:10px">Tournaments this week</h3>
-        <div class="evs">${davisCard()}${laverCard()}${evs.length?evs.map(evCard).join(''):`<div class="card"><p class="muted">No tournaments this week. It is the off-season, so it is a good time to train.</p></div>`}</div></div>
-      <div class="offtour">
-        <div class="card">
-          <h3>Train</h3>
-          <p class="muted" style="font-size:13px">${esc(coachName())} · ×${coach.mult}${P.trait==='learner'?' · quick learner ×1.25':''}. Focused work raises one skill, all-round work nudges every skill a little.</p>
-          <div class="chips">${ATTRS.map(([k,l])=>`<button class="chip ${ui.focus===k?'on':''}" data-act="focus" data-v="${k}">${l} ${Math.round(P.attrs[k])}</button>`).join('')}<button class="chip ${ui.focus==='all'?'on':''}" data-act="focus" data-v="all">All-round</button></div>
-          ${(P.trainStreak||0)>=2?`<p class="neg" style="font-size:13px;margin-bottom:8px">You have trained ${P.trainStreak} weeks in a row. Training again risks overtraining: a ${Math.round(overtrainRisk(P.trainStreak)*100)}% chance of injury. Rest or play a tournament to reset.</p>`:(P.trainStreak===1?'<p class="muted" style="font-size:13px;margin-bottom:8px">One more training week is safe. After two in a row you risk overtraining.</p>':'')}
-          <button class="btn ${(P.trainStreak||0)>=2?'danger':'primary'}" data-act="train" ${P.injured?'disabled':''}>${(P.trainStreak||0)>=2?'Train anyway':'Train this week'}</button>
-        </div>
-        <div class="card">
-          <h3>Rest</h3>
-          <p class="muted" style="font-size:13px">Skip the week and recover. Clears about 29 fatigue in total, more with a better lifestyle or a physio. ${P.injured?'Also counts as rehab.':''}</p>
-          <div style="margin-top:12px"><button class="btn" data-act="rest">Rest this week</button></div>
-        </div>
-      </div>
-    </div>
-    <div class="stack">
-      ${state.era==='dudes'?dudesTable(true):''}
-      <div class="card"><h3>Coming up</h3><div class="upc">${upcoming.join('')}</div></div>
-      <div class="card"><h3>Tour news</h3><div class="news">${state.news.slice(0,12).map(n=>`<div><span class="when">${n.w}</span><span class="${n.you?'you':''}">${esc(n.t)}</span></div>`).join('')}</div></div>
-    </div>
+    <div class="stack">${head}${report}${choices}${focusPanel}${events}</div>
+    <div class="stack">${coming}${state.era==='dudes'?dudesTable(true):''}${newsCard}</div>
   </div>`;
 }
 
@@ -4155,8 +4490,8 @@ function updateMatch(){ const el = document.getElementById('matchArea'); if(el &
 
 function renderPlayer(){
   const sub = ui.pSub || 'overview';
-  const nav = `<div class="seg subnav">${[['overview','Overview'],['team','Team'],['rivals','Rivals'],['doubles','Doubles']].map(([k,l])=>`<button data-act="psub" data-v="${k}" class="${sub===k?'on':''}">${l}</button>`).join('')}</div>`;
-  const body = sub==='team' ? renderTeamTab() : sub==='rivals' ? renderRivals() : sub==='doubles' ? renderDoubles() : renderOverview();
+  const nav = `<div class="seg subnav">${[['overview','Overview'],['team','Team'],['rivals','Rivals'],['doubles','Doubles'],['academy','Academy']].map(([k,l])=>`<button data-act="psub" data-v="${k}" class="${sub===k?'on':''}">${l}</button>`).join('')}</div>`;
+  const body = sub==='team' ? renderTeamTab() : sub==='rivals' ? renderRivals() : sub==='doubles' ? renderDoubles() : sub==='academy' ? renderAcademy() : renderOverview();
   return `<div class="stack">${nav}${body}</div>`;
 }
 function teamSummary(){
@@ -4341,7 +4676,7 @@ function dudesChart(L){
 function renderRankings(){
   const list = state.rankList, my = rankOf('you');
   let rows = [];
-  const row = (id, rk) => { const p = id==='you'?state.player:AI(id); return `<tr class="${id==='you'?'me':''}"><td class="n">${rk}</td><td>${id==='you'?esc(p.name):nameBtn(id,p.name)}${p.dude?'<span class="tag gold">Dude</span>':''}${p.majors?`<span class="tag">${p.majors} Grand Slam${p.majors>1?'s':''}</span>`:''}</td><td class="mono">${esc(p.country)}</td><td class="n">${ageOf(p)}</td><td>${STYLES[p.style].name}</td><td class="n">${state.rankPts[id]}</td></tr>`; };
+  const row = (id, rk) => { const p = id==='you'?state.player:AI(id); return `<tr class="${id==='you'?'me':''}"><td class="n">${rk}</td><td>${id==='you'?esc(p.name):nameBtn(id,p.name)}${p.dude?'<span class="tag gold">Dude</span>':''}${p.acad?'<span class="tag">Your academy</span>':''}${p.majors?`<span class="tag">${p.majors} Grand Slam${p.majors>1?'s':''}</span>`:''}</td><td class="mono">${esc(p.country)}</td><td class="n">${ageOf(p)}</td><td>${STYLES[p.style].name}</td><td class="n">${state.rankPts[id]}</td></tr>`; };
   if(ui.rankMode==='top'){
     rows = list.slice(0,100).map((id,i)=>row(id,i+1));
     if(my && my>100) rows.push(`<tr><td colspan="6" class="muted" style="text-align:center">…</td></tr>`, row('you', my));
@@ -4538,6 +4873,7 @@ function render(){
   else if(ui.tab==='saves') v = renderSaves();
   else if(ui.tab==='records') v = renderRecords();
   else if(ui.tab==='schedule') v = renderSchedule();
+  else if(ui.tab==='trophies') v = renderTrophies();
   else v = renderCareer();
   app.innerHTML = renderTop() + `<main class="wrap">${v}</main>`;
   renderModal();
@@ -4579,6 +4915,11 @@ function act(a, v){
     case 'hsub': ui.histSub=v; render(); break;
     case 'goto-rivals': ui.pSub='rivals'; ui.tab='player'; render(); window.scrollTo(0,0); break;
     case 'press': resolvePress(+v); break;
+    case 'rep-toggle': ui.reportOpen = !ui.reportOpen; render(); break;
+    case 'focus-toggle': ui.showFocus = !ui.showFocus; render(); break;
+    case 'news-more': ui.newsMore = !ui.newsMore; render(); break;
+    case 'acad-found': foundAcademy(); break;
+    case 'acad-up': upgradeAcademy(); break;
     case 'replay-intro': stopAuto(); if(state) save(); location.reload(); break;
     case 'show-coaches': ui.showCoaches = v==='1'; render(); break;
     case 'mtactic': if(m && !m.done){ m.tactic=v; ui.tactic=v; updateMatch(); } break;
