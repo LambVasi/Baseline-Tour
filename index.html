@@ -1,3 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0F3326">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Baseline Tour">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" href="icon-192.png">
+<style>body{padding-top:0;padding-bottom:env(safe-area-inset-bottom);padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}</style>
 <title>Baseline Tour</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -254,6 +268,25 @@ tr.me td{background:var(--accent-soft);font-weight:700}
 /* v2 additions */
 /* ---- fixed top bar ---- */
 html,body{overscroll-behavior-y:none}
+/* ---- iOS / Safari fixes ---- */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+*{-webkit-tap-highlight-color:transparent}
+button,input,select,textarea{font-family:inherit}
+button{color:inherit;-webkit-appearance:none;appearance:none}
+a.btn{color:inherit}
+select{-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23888' stroke-width='2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:34px!important}
+@media (max-width:900px){input[type=text],select,textarea{font-size:16px!important}}
+.two > *,.stack > *,.status > *,.grid > *{min-width:0}
+.tbl{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.sect span{white-space:nowrap}
+@media (hover:none){.tab:not(.on):hover{color:var(--board-muted)}.btn:hover{border-color:var(--line)}.btn.primary:hover{filter:none}.replaybtn:hover{border-color:rgba(255,255,255,.35);color:var(--board-ink)}}
+.btn:active,.copt:active,.sk:active,.int:active,.chip:active{transform:scale(.98)}
+.choice .sm-l{display:none}
+@media (max-width:560px){
+  .choice .lg-l{display:none}.choice .sm-l{display:inline}
+  .choice p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .choice .btn{padding:10px 4px;font-size:14px;white-space:nowrap;min-height:42px}
+}
 .topbar{top:0;padding-top:env(safe-area-inset-top,0px);z-index:15}
 @media (max-width:560px){
   .topbar .inner{padding-block:8px 6px;gap:6px 10px;flex-wrap:nowrap;flex-direction:column;align-items:stretch}
@@ -266,6 +299,68 @@ html,body{overscroll-behavior-y:none}
   .tabs{scrollbar-width:none}
   .tabs::-webkit-scrollbar{display:none}
   .tab{padding:8px 11px 9px;font-size:14px}
+}
+/* ---- era cards ---- */
+.eras-block{overflow:hidden}
+.swipe-hint{display:none;color:var(--accent);font-weight:600}
+.eracards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.eracard{position:relative;overflow:hidden;text-align:left;border:0;border-radius:16px;padding:16px 16px 14px;min-height:250px;cursor:pointer;background:var(--eb);color:#fff;display:flex;flex-direction:column;gap:6px;font:inherit;box-shadow:0 6px 18px rgba(0,0,0,.18);transition:transform .15s ease, box-shadow .15s ease;outline:3px solid transparent;outline-offset:2px}
+.eracard::after{content:'';position:absolute;right:-40px;bottom:-40px;width:170px;height:170px;border-radius:50%;border:2px solid rgba(255,255,255,.12);box-shadow:0 0 0 22px rgba(255,255,255,.04)}
+.eracard.on{outline-color:var(--ea);transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,0,0,.28)}
+.ec-stripes{position:absolute;top:0;right:14px;display:flex;gap:4px;height:46%;opacity:.8;-webkit-mask-image:linear-gradient(#000,transparent);mask-image:linear-gradient(#000,transparent)}.ec-stripes i{width:6px;height:100%;transform:skewX(-14deg);opacity:.6}
+.ec-yr{font:900 46px/0.95 var(--display);letter-spacing:-.01em;color:var(--ea);position:relative;text-shadow:0 2px 0 rgba(0,0,0,.25)}
+.ec-tag{font:700 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);position:relative}
+.ec-name{font:800 22px/1.05 var(--display);text-transform:uppercase;position:relative}
+.ec-blurb{font-size:13px;line-height:1.4;color:rgba(255,255,255,.86);position:relative;max-width:92%}
+.ec-stars{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto;position:relative}.ec-stars em{font-style:normal;font:600 11.5px var(--body);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.18);padding:3px 8px;border-radius:99px}
+.ec-foot{display:flex;justify-content:space-between;align-items:center;font:600 11px var(--mono);color:rgba(255,255,255,.7);position:relative}.ec-foot strong{color:var(--ea);font:800 12px var(--mono)}
+@media (max-width:900px){
+  .swipe-hint{display:inline}
+  .eracards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 -16px;padding:4px 16px 10px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .eracards::-webkit-scrollbar{display:none}
+  .eracard{flex:0 0 80%;scroll-snap-align:center;min-height:290px}
+}
+/* ---- player card ---- */
+.pcard{position:relative;overflow:hidden;border-radius:18px;padding:16px;background:var(--eb);color:#fff;margin-bottom:12px;box-shadow:0 8px 22px rgba(0,0,0,.22);border:2px solid var(--ea)}
+.pcard::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(115deg,rgba(255,255,255,.05) 0 2px,transparent 2px 14px);pointer-events:none}
+.pc-top{display:flex;justify-content:space-between;align-items:flex-start;position:relative}
+.pc-ovr{font:900 44px/0.9 var(--display);color:var(--ea);display:flex;flex-direction:column}.pc-ovr small{font:700 11px var(--mono);letter-spacing:.12em;color:rgba(255,255,255,.75);margin-top:4px}
+.pc-meta{display:flex;flex-direction:column;align-items:flex-end;gap:2px}.pc-meta b{font:800 18px var(--display)}.pc-meta span{font:600 11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.75)}
+.pc-ball{position:absolute;right:-26px;top:54px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#f4ff7a,#cfe63a 60%,#9fb526);opacity:.22}
+.pc-name{font:900 26px/1 var(--display);text-transform:uppercase;margin-top:18px;position:relative;word-break:break-word}
+.pc-sub{font-size:12.5px;color:rgba(255,255,255,.8);margin-top:4px;position:relative}
+.pc-attrs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:14px;position:relative}
+.pc-attrs span{background:rgba(0,0,0,.25);border-radius:10px;padding:6px 4px;text-align:center;font:600 10px var(--mono);text-transform:uppercase;color:rgba(255,255,255,.75);display:flex;flex-direction:column;gap:2px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pc-attrs b{font:800 18px var(--display);color:#fff}
+/* ---- phone tab polish ---- */
+.howto summary{cursor:pointer;font:600 13px var(--body);color:var(--accent);margin-top:4px}
+.howto p{margin-top:6px}
+@media (max-width:700px){
+  .subnav{display:flex;overflow-x:auto;scrollbar-width:none;max-width:none}.subnav::-webkit-scrollbar{display:none}.subnav button{flex:1 0 auto;padding:9px 12px}
+  .rktbl th:nth-child(5),.rktbl td:nth-child(5){display:none}
+  .tbl table{font-size:13.5px}
+  .tbl td,.tbl th{padding-left:6px;padding-right:6px}
+  .wrap{padding-left:14px;padding-right:14px}
+  .card{padding:16px}
+  h2{font-size:24px}
+}
+/* ---- bottom nav (phones) ---- */
+.bnav,.msheet,.msheet-bg{display:none}
+@media (max-width:700px){
+  .topbar .tabs{display:none}
+  body:has(.bnav) .wrap{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+  .bnav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--board);color:var(--board-muted);padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));box-shadow:0 -4px 18px rgba(0,0,0,.18)}
+  .bn{background:none;border:0;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 0 4px;font:600 11px var(--body);color:var(--board-muted);cursor:pointer;position:relative;min-width:0}
+  .bn span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+  .bn.on{color:var(--ball)}
+  .bn.on::before{content:'';position:absolute;top:-6px;left:28%;right:28%;height:3px;border-radius:0 0 3px 3px;background:var(--ball)}
+  .bdot{position:absolute;top:4px;right:calc(50% - 16px);width:8px;height:8px;border-radius:50%;background:var(--ball)}
+  .msheet-bg{display:block;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:38}
+  .msheet{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;position:fixed;left:0;right:0;bottom:calc(64px + env(safe-area-inset-bottom,0px));z-index:39;background:var(--panel);border-radius:18px 18px 0 0;padding:10px 12px 14px;box-shadow:0 -8px 24px rgba(0,0,0,.2)}
+  .msheet-grab{grid-column:1/-1;width:40px;height:4px;border-radius:99px;background:var(--line);margin:0 auto 4px}
+  .mitem{background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:12px 6px;display:flex;flex-direction:column;align-items:center;gap:6px;font:600 13px var(--body);color:var(--ink);cursor:pointer}
+  .mitem.on{border-color:var(--accent);box-shadow:inset 0 0 0 2px var(--accent)}
+  .mitem em{font-style:normal;background:var(--ball);color:#1B2A10;border-radius:99px;padding:0 6px;font:800 11px var(--mono)}
 }
 /* ---- This week (v3) ---- */
 .hub > .stack{min-width:0}
@@ -2352,7 +2447,7 @@ const PATHS = {
     blurb:'You took a college scholarship instead of turning pro. You get free training, no living costs and a team to play for, but you play as an amateur until you turn pro or graduate.',
     base:0, men:2, potLo:20, potHi:32, minGap:8, cash:.5, pts:20, fame:0,
     perks:['Free training and no living costs while in college','College dual matches every spring week, NCAA Championships in May','Win the NCAAs for a US Open wildcard'],
-    catches:['Amateur: pro prize money capped at $10k a season','No sponsors in college (NIL deals allowed from 2021)','Turn pro any time, or graduate after 4 seasons']},
+    catches:['Amateur: pro prize money capped at $10k a season','No endorsements of any kind until you turn pro','Turn pro any time, or graduate after 4 seasons']},
   clubpro:{name:'Teaching pro', age:27, short:'27 · polished · last shot', h1:'One last shot at the tour',
     blurb:'You spent your twenties coaching at a club, and you can still really play. This is your last shot at the tour: the most polished game, but the smallest window.',
     base:8, men:6, potLo:5, potHi:12, minGap:4, cash:1.8, pts:40, fame:0,
@@ -2542,16 +2637,17 @@ function newCareer(d){
   planWeek();
   const top = state.rankList.slice(0,3).map(id=>getP(id).name);
   const P0 = state.player; if(PA && PA.fame) P0.fameBonus = PA.fame;
+  if(P0.college && d.school && SCHOOLS.includes(d.school)) P0.college.school = d.school;
   news(isDude ? `${name} turns pro at 18, along with two other teenagers everyone is already talking about.` : pk==='college' ? `${name} starts at ${P0.college.school} on a tennis scholarship. The world's best: ${top.join(', ')}.` : pk==='clubpro' ? `${name}, 27, leaves a job as a club teaching pro to chase the tour. The world's best: ${top.join(', ')}.` : `${name} turns pro at 16, the most hyped junior in years. The world's best: ${top.join(', ')}.`, true);
   let wcs = [];
   if(pk==='prodigy'){ wcs = prodigyWCs(); const hs = HOME_SLAM[P0.country]; if(hs){ const opt = []; for(let w=2; w<=50; w++) for(const ev of weekEvents(w, y)) if(ev.tier==='SLAM' && ev.city===hs) opt.push(w); const sl = P0.wcs.find(x=>x.tier==='SLAM'); if(sl && opt.length){ sl.week = opt[0]; sl.name = evName(weekEvents(opt[0], y).find(e=>e.tier==='SLAM')); sl.why = 'Home Slam wildcard'; sl.type = 'main'; } } }
   ui.tab='week';
   ui.report = isDude
     ? {title:`The Dudes, ${y}`, lines:[`You are ${name}, 18, ${dude.height}, a future ${surfLabel(dude).toLowerCase()}-court specialist.`, 'You start from scratch in the Futures, but you improve faster than a normal player and have a far higher ceiling. Expect to hit your peak around 26 or 27.', `Your two rivals, ${Object.keys(DUDES).filter(k=>k!==d.dude).map(k=>DUDES[k].name).join(' and ')}, start at the bottom too and rise just as quickly.`]}
-    : pk==='college' ? {title:`Welcome to ${state.player.college.school}`, lines:[`You are 18 and on a tennis scholarship at ${state.player.college.school}. Training is free and the scholarship covers your living costs.`, `From week ${COLLEGE_W0} to week ${NCAA_WEEK - 1} there is a college dual match every week (it counts as playing). The NCAA Championships are in week ${NCAA_WEEK}: win them for a US Open wildcard.`, 'You can also play Futures and Challengers as an amateur, but you keep at most $10k of prize money a season. Turn pro whenever you like from the college card, or graduate after four seasons.', 'Check the Career tab for the goals of your story.']}
+    : pk==='college' ? {title:`Welcome to ${state.player.college.school}`, lines:[`You are 18 and on a tennis scholarship at ${state.player.college.school}. Training is free and the scholarship covers your living costs.`, `From week ${COLLEGE_W0} to week ${NCAA_WEEK - 1} there is a college dual match every week (it counts as playing). The NCAA Championships are in week ${NCAA_WEEK}: win them for a US Open wildcard.`, 'You can also play Futures and Challengers as an amateur, but you keep at most $10k of prize money a season, and you cannot sign endorsements until you turn pro. Turn pro whenever you like from the college card, or graduate after four seasons.', 'Check the Career tab for the goals of your story.']}
     : pk==='clubpro' ? {title:`One last shot, ${y}`, lines:['You are 27, a former club teaching pro with a polished game and some savings.', 'Your ceiling is lower than the kids’, and age will catch up quickly, so make the most of the next few seasons. In weeks you do not play a tournament you teach lessons for extra income, until you reach the top 150.', 'You have a 40-point ranking from part-time Futures, so only Futures events will take you for now.', 'Check the Career tab for the goals of your story.']}
     : {title:`Welcome to ${y}`, lines:['You are 16, the most hyped junior in the world. You start raw, but your ceiling is the highest in the game.', `The age rule limits you to 12 pro events this season (16 at 17).${wcs.length?` You have ${wcs.length} wildcard${wcs.length>1?'s':''} this season: ${wcs.map(w=>esc(w.name)).join(', ')}.`:''}`, 'Big expectations come with big rewards. Check the Career tab for the goals of your story.']};
-  state.onboard = (pk==='college' && y<2021) ? null : startOffers(false, isDude || pk==='prodigy');
+  state.onboard = pk==='college' ? null : startOffers(false, isDude || pk==='prodigy');
   save(); render();
 }
 
@@ -2603,7 +2699,7 @@ function startOffers(isDude, hyped=false){
   return {offers, pick:{racket:null, apparel:null}};
 }
 function genOffers(reason, opts={}){
-  if(collegeOn() && state.season<2021) return;
+  if(collegeOn()) return;
   const P = state.player, f = fame(), t = fameTier(f), prod = prodigy(), rk = rankOf('you')||9999;
   P.offers = P.offers.filter(o=>o.exp>state.absWeek);
   let made = 0;
@@ -3698,13 +3794,13 @@ const OC_CITIES = ['Abu Dhabi','Riyadh','Hong Kong','Macau','Mexico City','Seoul
 function genOffcourt(){
   const P = state.player, s = ms(), rk = rankOf('you')||9999, f = fame(), cash = Math.max(0, P.money);
   const E = [];
-  if(rk<=100) E.push({type:'exhib', title:'The big-money exhibition', text:`A promoter wants you for a two-night exhibition in ${pick(OC_CITIES)}. The fee is ${money((40000+f*6000)*s)}. It means long flights in the middle of the season.`,
+  if(rk<=100 && !collegeOn()) E.push({type:'exhib', title:'The big-money exhibition', text:`A promoter wants you for a two-night exhibition in ${pick(OC_CITIES)}. The fee is ${money((40000+f*6000)*s)}. It means long flights in the middle of the season.`,
     opts:[{label:'Take the money', hint:`+${money((40000+f*6000)*s)}, +18 fatigue`},{label:'Turn it down', hint:'Stay fresh for the tour'}], v:(40000+f*6000)*s});
   if(cash>=25000*s) E.push({type:'base', title:'Move your training base?', text:'Two academies want you to train with them full time. Moving means new habits, a new city and a big bill.',
     opts:[{label:'Clay academy in Spain', hint:`−${money(25000*s)} · +2 forehand, +1.5 stamina, +1 return`},{label:'Hard-court academy in Florida', hint:`−${money(25000*s)} · +2 serve, +1.5 speed, +1 backhand`},{label:'Stay where you are', hint:'Nothing changes'}], v:25000*s});
   E.push({type:'family', title:'Family comes first?', text:'Your family asks you to come home for a while. Someone close to you needs support.',
     opts:[{label:'Go home for three weeks', hint:'Miss 3 weeks, fatigue reset to 0, +2 mental'},{label:'Stay on tour', hint:'−2 mental, +10 fatigue from the stress'}]});
-  if(rk<=300) E.push({type:'doc', title:'Documentary offer', text:'A streaming service wants to follow you with cameras for a whole season.',
+  if(rk<=300 && !collegeOn()) E.push({type:'doc', title:'Documentary offer', text:'A streaming service wants to follow you with cameras for a whole season.',
     opts:[{label:'Sign the deal', hint:`+${money((30000+f*3000)*s)}, +8 fame, −1.5 mental from the distraction`},{label:'Keep your privacy', hint:'Nothing changes'}], v:(30000+f*3000)*s});
   if(P.coach<3 && cash>=8000*4*s) E.push({type:'coach', title:'A famous coach is available', text:`A coach who has worked with Grand Slam champions wants to join your team. He asks for a joining fee of ${money(8000*4*s)}.`,
     opts:[{label:'Hire the elite coach', hint:`−${money(8000*4*s)} now, then the Elite coach salary each week`},{label:'Not yet', hint:'Keep your current team'}], v:8000*4*s});
@@ -3714,7 +3810,7 @@ function genOffcourt(){
     opts:[{label:'Launch the foundation', hint:`−${money(60000*s)} · permanent +4 fame`},{label:'Make a donation', hint:`−${money(8000*s)} · +3 fame for a while`},{label:'Not now', hint:'Nothing changes'}], v:60000*s});
   E.push({type:'gala', title:'Celebrity gala invitation', text:'You are invited to a star-studded gala in Hollywood. Cameras everywhere.',
     opts:[{label:'Walk the red carpet', hint:'+6 fame, +8 fatigue, small chance of a scandal'},{label:'Stay home and sleep', hint:'Fatigue −5'}]});
-  E.push({type:'frame', title:'Change your racket?', text:'Your racket sponsor offers a heavier new frame. More power, but harder to swing late in matches.',
+  if(!collegeOn()) E.push({type:'frame', title:'Change your racket?', text:'Your racket sponsor offers a heavier new frame. More power, but harder to swing late in matches.',
     opts:[{label:'Switch to the heavy frame', hint:'+2 serve, +1 forehand, −1.5 speed'},{label:'Switch to a lighter frame', hint:'+1.5 speed, +1 return, −1.5 serve'},{label:'Keep your old racket', hint:'Nothing changes'}]});
   if(cash>20000*s) E.push({type:'invest', title:'A friend’s startup', text:'An old friend is raising money for a startup and wants you to invest. It could be huge, or it could vanish.',
     opts:[{label:`Invest ${money(Math.round(cash*.25))}`, hint:'Pays out in a year: could be ×4, ×1 or nothing'},{label:'Pass', hint:'Keep your money'}], v:Math.round(cash*.25)});
@@ -4454,6 +4550,42 @@ function seg(act, cur, opts, cls=''){ return `<div class="seg ${cls}">${Object.e
 function nameBtn(id, name){ return id && id!=='you' && !String(id).startsWith('f') && AI(id) ? `<button class="linkbtn" data-act="profile" data-v="${id}">${esc(name)}</button>` : esc(name); }
 const traitPicker = d => `<label>Signature trait</label><div class="traits">${Object.entries(TRAITS).map(([k,t])=>`<button class="trait ${d.trait===k?'on':''}" data-act="d-trait" data-v="${k}"><b>${t.name}</b><span>${t.note}</span></button>`).join('')}</div>`;
 
+const ERA_THEME = {
+  '80s':{bg:'linear-gradient(160deg,#3b2414,#6e4020 55%,#c77b2f)', ac:'#F2B24A', stripes:['#F2B24A','#E0782E','#B94A26'], tag:'Wood rackets · big hair'},
+  '90s':{bg:'linear-gradient(160deg,#1d1146,#3f1d77 50%,#0f7c86)', ac:'#3EE6D0', stripes:['#3EE6D0','#B45CFF','#FF4FA3'], tag:'Big serves · neon'},
+  '00s':{bg:'linear-gradient(160deg,#0c1d3a,#17427a 55%,#4f7fb8)', ac:'#9FC3F0', stripes:['#E6ECF5','#9FC3F0','#4f7fb8'], tag:'The golden age begins'},
+  '10s':{bg:'linear-gradient(160deg,#1a0f2e,#3b2360 50%,#1d6b3a)', ac:'#B9E36A', stripes:['#B9E36A','#8E6BD8','#1d6b3a'], tag:'Four men, every title'},
+  '20s':{bg:'linear-gradient(160deg,#0a0f0a,#14331f 55%,#2a6e3c)', ac:'#D7F24A', stripes:['#D7F24A','#8FE3A1','#2a6e3c'], tag:'The new generation'},
+  'dudes':{bg:'linear-gradient(160deg,#1a1405,#4a3708 50%,#b8891a)', ac:'#FFD35C', stripes:['#FFD35C','#F29E2E','#B8891A'], tag:'Three generational talents'},
+};
+function eraCardBig(e, on){
+  const T = ERA_THEME[e.key] || ERA_THEME['20s'], dude = e.key==='dudes', yr = dude ? 'Dudes' : e.year;
+  const stars = dude ? ['Vasilakos','Rosales','McKenzie'] : eraStars(e.year);
+  const n = dude ? 0 : Math.min(eraCount(e.year),300);
+  return `<button class="eracard ${on?'on':''}" data-act="d-era" data-v="${e.key}" style="--eb:${T.bg};--ea:${T.ac}">
+    <span class="ec-stripes">${T.stripes.map(c=>`<i style="background:${c}"></i>`).join('')}</span>
+    <span class="ec-yr">${yr}</span>
+    <span class="ec-tag">${esc(T.tag)}</span>
+    <b class="ec-name">${esc(e.name)}</b>
+    <span class="ec-blurb">${esc(e.blurb)}</span>
+    <span class="ec-stars">${stars.map(x=>`<em>${esc(x)}</em>`).join('')}</span>
+    <span class="ec-foot">${dude ? 'Pick any era for them next' : `${n} real players`}${on?'<strong>Selected ✓</strong>':''}</span>
+  </button>`;
+}
+function playerCard(d, a, pot){
+  const isDude = d.era==='dudes', who = isDude ? DUDES[d.dude] : null, PA = PATHS[d.path||'prodigy'];
+  const T = ERA_THEME[d.era] || ERA_THEME['20s'];
+  const name = isDude ? who.name : ((d.name||'').trim() || 'Alex Tremblay');
+  const ctry = isDude ? who.country : d.country;
+  const top = ATTRS.map(([k,l])=>[l,a[k]]).sort((x,y)=>y[1]-x[1]).slice(0,3);
+  return `<div class="pcard" style="--eb:${T.bg};--ea:${T.ac}">
+    <div class="pc-top"><span class="pc-ovr">${ovr(a).toFixed(0)}<small>OVR</small></span><span class="pc-meta"><b>${esc(ctry)}</b><span>${isDude?'The Dudes':esc(PA.name)}</span></span></div>
+    <div class="pc-ball"></div>
+    <div class="pc-name">${esc(name)}</div>
+    <div class="pc-sub">${esc(STYLES[isDude?who.style:d.style].name)} · age ${isDude?18:PA.age} · ${isDude?(d.dudeYear||2026):eraOf(d.era).year}</div>
+    <div class="pc-attrs">${top.map(([l,v])=>`<span><b>${Math.round(v)}</b>${esc(l)}</span>`).join('')}<span><b>${grade(ovr(pot))}</b>Ceiling</span></div>
+  </div>`;
+}
 function createSteps(isDude){ return isDude ? [['era','Era'],['dude','Dude'],['setup','Setup'],['review','Review']] : [['era','Era'],['story','Story'],['player','Player'],['game','Game'],['review','Review']]; }
 function renderCreate(){
   const d = ui.draft || (ui.draft = newDraft());
@@ -4473,14 +4605,14 @@ function renderCreate(){
   if(step==='era'){
     body = `${ui.saveMsg?`<div class="card report"><div class="between"><span>${esc(ui.saveMsg)}</span><button class="btn sm" data-act="msg-x">Dismiss</button></div></div>`:''}
       ${anySlots()?`<div class="card"><h3>Continue a saved career</h3><div class="slots">${slotRows(false)}</div></div>`:''}
-      <div class="cblock"><h3>Pick your era</h3><p class="cq">The real players of that time are your opponents.</p>
-        <div class="copts era6">${ERAS.map(e=>opt('d-era', d.era, e.key, `${e.key==='dudes'?'Dudes':e.year}`, esc(e.key==='dudes'?'Play a Dude':e.name))).join('')}</div>
-        <div class="csel"><b>${esc(era.name)}</b><p>${esc(era.blurb)}</p><p class="mono">${isDude?'Vasilakos, Rosales, McKenzie. Pick which tour they join in Setup.':`Top of the tour: ${eraStars(era.year).map(esc).join(', ')} · ${Math.min(eraCount(era.year),300)} real players`}</p></div></div>
+      <div class="cblock eras-block"><h3>Pick your era</h3><p class="cq">The real players of that time are your opponents. <span class="swipe-hint">Swipe to see them all →</span></p>
+        <div class="eracards">${ERAS.map(e=>eraCardBig(e, d.era===e.key)).join('')}</div></div>
       <details class="cload"><summary>Have a save code? Load it here</summary><div style="margin-top:10px">${importBox()}</div></details>`;
   } else if(step==='story'){
     body = `<div class="cblock"><h3>Choose your story</h3><p class="cq">Where your career begins shapes your age, skills and goals.</p>
         <div class="copts three">${Object.entries(PATHS).map(([k,p])=>opt('d-path', d.path||'prodigy', k, esc(p.name), esc(p.short))).join('')}</div>
-        <div class="csel"><b>${esc(PA.name)} · age ${PA.age}</b><p>${esc(PA.blurb)}</p><ul class="pcl">${PA.perks.map(x=>`<li class="pp">${esc(x)}</li>`).join('')}${PA.catches.map(x=>`<li class="pc">${esc(x)}</li>`).join('')}</ul></div></div>`;
+        <div class="csel"><b>${esc(PA.name)} · age ${PA.age}</b><p>${esc(PA.blurb)}</p><ul class="pcl">${PA.perks.map(x=>`<li class="pp">${esc(x)}</li>`).join('')}${PA.catches.map(x=>`<li class="pc">${esc(x)}</li>`).join('')}</ul></div>
+        ${(d.path||'prodigy')==='college' ? `<div class="cfield"><label for="f-school">Your college</label><select id="f-school">${SCHOOLS.slice().sort().map(x=>`<option value="${esc(x)}" ${x===(d.school||'Stanford')?'selected':''}>${esc(x)}</option>`).join('')}</select><p class="hint">You play for ${esc(d.school||'Stanford')} for up to four seasons, or until you turn pro.</p></div>` : ''}</div>`;
   } else if(step==='player'){
     body = `<div class="cblock"><h3>Who are you?</h3>
         <div class="cfield"><label for="f-name">Player name</label><input type="text" id="f-name" value="${esc(d.name)}" maxlength="28" autocomplete="off"></div>
@@ -4508,8 +4640,8 @@ function renderCreate(){
         <div class="cfield"><label>Signature trait</label><div class="copts three ph2">${Object.entries(TRAITS).map(([k,x])=>opt('d-trait', d.trait, k, esc(x.name))).join('')}</div><p class="hint">${esc(TRAITS[d.trait].note)}</p></div></div>`;
   } else {
     body = `<div class="cblock"><h3>Ready?</h3>
-        <div class="csum">${isDude ? `<div><span>Dude</span><b>${esc(who.name)}</b></div><div><span>Tour</span><b>${d.dudeYear||2026}</b></div>` : `<div><span>Name</span><b>${esc(d.name||'Alex Tremblay')}</b></div><div><span>Story</span><b>${esc(PA.name)}</b></div><div><span>Era</span><b>${era.year}</b></div><div><span>Style</span><b>${esc(STYLES[d.style].name)}</b></div>`}<div><span>Difficulty</span><b>${esc(DIFFS[d.diff].name)}</b></div><div><span>Trait</span><b>${esc(TRAITS[d.trait].name)}</b></div></div>
-        <div class="phone-only">${profile}</div>
+        <div class="csum">${isDude ? `<div><span>Dude</span><b>${esc(who.name)}</b></div><div><span>Tour</span><b>${d.dudeYear||2026}</b></div>` : `<div><span>Name</span><b>${esc(d.name||'Alex Tremblay')}</b></div><div><span>Story</span><b>${esc(PA.name)}</b></div>${(d.path||'prodigy')==='college'?`<div><span>College</span><b>${esc(d.school||'Stanford')}</b></div>`:''}<div><span>Era</span><b>${era.year}</b></div><div><span>Style</span><b>${esc(STYLES[d.style].name)}</b></div>`}<div><span>Difficulty</span><b>${esc(DIFFS[d.diff].name)}</b></div><div><span>Trait</span><b>${esc(TRAITS[d.trait].name)}</b></div></div>
+        <div class="phone-only">${playerCard(d, a, pot)}${profile}</div>
         <p class="hint">${isDude?'Brands have heard the hype. There is a good chance of an early long-term deal.':'After you start, your agent brings your first sponsor offers. Tap any step above to change something.'}</p></div>`;
   }
   const startBtn = `<button class="btn primary" data-act="start">${isDude?`Play as ${esc(last(who.name))}`:`Start career`}</button>`;
@@ -4522,7 +4654,7 @@ function renderCreate(){
   <main class="wrap create cwiz">
     <div class="chead"><p class="eyebrow">New career · step ${si+1} of ${steps.length}</p><h1>${isDude?'Three Dudes, one throne':esc(PA.h1)}</h1></div>
     ${stepper}
-    <div class="cgrid"><div class="cmain">${body}</div><aside class="cside">${profile}<div class="cstart" style="margin-top:12px">${startBtn}</div></aside></div>
+    <div class="cgrid"><div class="cmain">${body}</div><aside class="cside">${playerCard(d, a, pot)}${profile}<div class="cstart" style="margin-top:12px">${startBtn}</div></aside></div>
   </main>${bar}`;
 }
 
@@ -4543,7 +4675,27 @@ function renderTop(){
       <div><span>Fatigue</span><b>${Math.round(P.fatigue)} · ${f.word}</b></div>
     </div></div>
     ${state.over?'':`<nav class="tabs">${tabs.map(([k,l])=>`<button class="tab ${ui.tab===k?'on':''}" data-act="tab" data-v="${k}">${l}</button>`).join('')}</nav>`}
-  </header>`;
+  </header>${state.over?'':bottomNav(wk, nOff)}`;
+}
+const NAV_ICON = {
+  week:'<path d="M4 7h16v13H4z M4 11h16 M9 4v5 M15 4v5" />',
+  player:'<circle cx="12" cy="8" r="4"/><path d="M4 21c1-4.5 4-7 8-7s7 2.5 8 7"/>',
+  schedule:'<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16 M8 14h3 M13 14h3 M8 17h3"/>',
+  rank:'<path d="M5 20V11 M12 20V5 M19 20v-6"/>',
+  more:'<circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/>',
+  sponsors:'<path d="M12 3l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.8z"/>',
+  history:'<circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/>',
+  trophies:'<path d="M8 4h8v5a4 4 0 0 1-8 0z M8 6H5a3 3 0 0 0 3 4 M16 6h3a3 3 0 0 1-3 4 M12 13v4 M8 20h8 M10 17h4"/>',
+  career:'<path d="M4 18l5-6 4 3 7-9"/><path d="M15 6h5v5"/>',
+  saves:'<path d="M5 4h11l3 3v13H5z M8 4v5h7V4 M8 20v-6h8v6"/>',
+};
+const navIcon = k => `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${NAV_ICON[k]}</svg>`;
+const MORE_TABS = [['sponsors','Sponsors'],['history','History'],['trophies','Trophies'],['career','Career'],['saves','Saves']];
+function bottomNav(wk, nOff){
+  const main = [['week', wk==='This week'?'Week':wk==='Tournament'?'Event':wk], ['player','Player'], ['schedule','Schedule'], ['rank','Rankings']];
+  const moreOn = MORE_TABS.some(([k])=>k===ui.tab);
+  const sheet = ui.moreOpen ? `<div class="msheet-bg" data-act="more-close"></div><div class="msheet" role="dialog" aria-label="More"><div class="msheet-grab"></div>${MORE_TABS.map(([k,l])=>`<button class="mitem ${ui.tab===k?'on':''}" data-act="tab" data-v="${k}">${navIcon(k)}<span>${l}${k==='sponsors'&&nOff?` <em>${nOff}</em>`:''}</span></button>`).join('')}</div>` : '';
+  return `${sheet}<nav class="bnav" aria-label="Main">${main.map(([k,l])=>`<button class="bn ${ui.tab===k?'on':''}" data-act="tab" data-v="${k}">${navIcon(k)}<span>${esc(l)}</span></button>`).join('')}<button class="bn ${moreOn||ui.moreOpen?'on':''}" data-act="more">${navIcon('more')}<span>More</span>${nOff?'<i class="bdot"></i>':''}</button></nav>`;
 }
 
 function evCard(ev){
@@ -4642,8 +4794,8 @@ function renderHub(){
   const nPlay = (collegeAvail()?1:0) + evs.filter(e=>eligibility(e).type!=='no').length + ((state.laverPlan&&state.laverPlan.invited&&!state.laverPlan.played)?1:0) + ((state.davisPlan&&state.davisPlan.userTie>=0&&!state.davisPlan.played)?1:0);
   const ts = P.trainStreak||0;
   const choices = `<div class="wk-choices">
-    <div class="choice ${locked?'hot':''}"><h4>Play</h4><p>${nPlay?`${nPlay} event${nPlay>1?'s':''} you can enter this week`:(evs.length?'Nothing you can enter this week':'Off-season, no events')}</p><a class="btn primary" href="#wk-events" style="text-decoration:none">See events</a></div>
-    <div class="choice"><h4>Train</h4><p>${locked?'Locked until you play':P.injured?'Not while injured':`${esc(focusName)} · ${esc(intOf().name)} · ${money(trainCost())}${focusRepeat(ui.focus)?` · <span class="neg">${Math.round(repeatMul(ui.focus)*100)}% effect</span>`:''}${ts>=2?` · <span class="neg">${Math.round(overtrainRisk(ts)*100)}% injury risk</span>`:ts===1?' · one more week is safe':''}`}</p><button class="btn" data-act="focus-toggle" ${P.injured||locked?'disabled':''}>${ui.showTrain?'Close plan':'Training plan'}</button></div>
+    <div class="choice ${locked?'hot':''}"><h4>Play</h4><p>${nPlay?`${nPlay} event${nPlay>1?'s':''} you can enter this week`:(evs.length?'Nothing you can enter this week':'Off-season, no events')}</p><a class="btn primary" href="#wk-events" style="text-decoration:none"><span class="lg-l">See events</span><span class="sm-l">Events</span></a></div>
+    <div class="choice"><h4>Train</h4><p>${locked?'Locked until you play':P.injured?'Not while injured':`${esc(focusName)} · ${esc(intOf().name)} · ${money(trainCost())}${focusRepeat(ui.focus)?` · <span class="neg">${Math.round(repeatMul(ui.focus)*100)}% effect</span>`:''}${ts>=2?` · <span class="neg">${Math.round(overtrainRisk(ts)*100)}% injury risk</span>`:ts===1?' · one more week is safe':''}`}</p><button class="btn" data-act="focus-toggle" ${P.injured||locked?'disabled':''}>${ui.showTrain?'<span class="lg-l">Close plan</span><span class="sm-l">Close</span>':'<span class="lg-l">Training plan</span><span class="sm-l">Plan</span>'}</button></div>
     <div class="choice"><h4>Rest</h4><p>${locked?'Locked until you play':P.injured?'Counts as rehab':'Recover about 29 fatigue'}</p><button class="btn" data-act="rest" ${locked?'disabled':''}>Rest</button></div>
   </div>`;
   const focusPanel = (()=>{
@@ -4980,8 +5132,9 @@ function renderSponsors(){
       <div class="meta">${money(o.weekly*52*s*crowd)} a year for ${termText(o)}${o.raise?`, rising ${(o.raise*100).toFixed(0)}% a year`:''} · signing bonus ${money(o.sign*s*crowd)} · title bonus ${money(o.title*s*crowd)} · Grand Slam bonus ${money(o.major*s*crowd)}${perkText(o.slot,o.tier)?` · ${perkText(o.slot,o.tier)}`:''}${o.combo?'<br><b>Head-to-toe deal: covers your clothes and shoes.</b> Includes shoe gear: +'+((o.tier-1)*.3).toFixed(1)+' speed.':''}${(()=>{ const rs = P.contracts.filter(c=>c.slot===o.slot || (o.combo && c.slot==='shoes') || (o.slot==='shoes' && c.combo)); return rs.length ? `<br>Replaces ${rs.map(c=>esc(c.brand)).join(' and ')} (buyout ${money(rs.reduce((t,c)=>t+buyout(c),0))})` : ''; })()}<br>Expires in ${o.exp-state.absWeek} week${o.exp-state.absWeek>1?'s':''}</div>
       <div class="actions"><button class="btn primary sm" data-act="accept" data-v="${o.id}">Sign</button><button class="btn sm" data-act="decline" data-v="${o.id}">Decline</button></div></div>`;
   }).join('') : '<p class="muted">No offers right now. New offers arrive at the start of each season and after big results: titles, medals and new career-high rankings.</p>';
+  if(collegeOn()) return `<div class="stack"><div class="card"><h3>No endorsements in college</h3><p class="muted">As a ${esc(P.college.school)} player you are an amateur, so you can't sign sponsors or earn endorsement money. Brands will call as soon as you turn pro, which you can do any time from the college card on This Week.</p></div></div>`;
   return `<div class="stack">
-    <div class="card"><div class="between"><div><h3 style="margin:0">Your brand</h3><p class="muted" style="font-size:13px">Deals are quoted per year and paid out weekly. Brands appear in the years they were active in tennis. This is a fan-made game with no affiliation to any brand. Fame comes from your ranking, titles and medals. Higher fame brings better brands. Apparel giants can offer head-to-toe deals that cover your clothes and shoes for much more money. Stars and teenage prodigies can get 10 to 15-year deals with yearly raises. Lifetime contracts come once you reach five-star fame, or, very rarely, from a brand that bets on you before your first match. Long-term and lifetime deals are guaranteed. Shorter deals can be dropped after a poor season.</p></div><div class="nums"><div><span>Endorsements</span><b>${money(endorseWeekly()*52)}/yr</b></div><div><span>Earned so far</span><b>${money(P.stats.endorse)}</b></div></div></div>
+    <div class="card"><div class="between"><div><h3 style="margin:0">Your brand</h3><details class="howto"><summary>How sponsor deals work</summary><p class="muted" style="font-size:13px">Deals are quoted per year and paid out weekly. Brands appear in the years they were active in tennis. This is a fan-made game with no affiliation to any brand. Fame comes from your ranking, titles and medals. Higher fame brings better brands. Apparel giants can offer head-to-toe deals that cover your clothes and shoes for much more money. Stars and teenage prodigies can get 10 to 15-year deals with yearly raises. Lifetime contracts come once you reach five-star fame, or, very rarely, from a brand that bets on you before your first match. Long-term and lifetime deals are guaranteed. Shorter deals can be dropped after a poor season.</p></details></div><div class="nums"><div><span>Endorsements</span><b>${money(endorseWeekly()*52)}/yr</b></div><div><span>Earned so far</span><b>${money(P.stats.endorse)}</b></div></div></div>
       <div class="fame" style="margin-top:12px"><span class="mono">Fame ${Math.round(f)}</span><div class="meter"><i style="width:${f}%;background:var(--warn)"></i></div>${stars(t)}</div></div>
     <div class="slots sp">${slots}</div>
     <div class="card"><h3>Offers</h3><div class="stack">${offerRows}</div></div>
@@ -5041,7 +5194,7 @@ function renderRankings(){
   }
   return `${state.era==='dudes'?`<div style="margin-bottom:20px">${dudesTable(false)}</div>`:''}<div class="card"><div class="between" style="margin-bottom:10px"><div><h3 style="margin:0">Tour rankings</h3><p class="muted" style="font-size:13px">52-week rolling points · week ${state.week}, ${state.season} · tap a name for their profile</p></div>
     <div class="seg" style="min-width:220px"><button data-act="rankmode" data-v="top" class="${ui.rankMode==='top'?'on':''}">Top 100</button><button data-act="rankmode" data-v="me" class="${ui.rankMode==='me'?'on':''}">Around me</button></div></div>
-    <div class="tbl"><table><thead><tr><th class="n">Rank</th><th>Player</th><th>Nat</th><th class="n">Age</th><th>Style</th><th class="n">Points</th></tr></thead><tbody>${rows.join('')}</tbody></table></div></div>`;
+    <div class="tbl"><table class="rktbl"><thead><tr><th class="n">Rank</th><th>Player</th><th>Nat</th><th class="n">Age</th><th>Style</th><th class="n">Points</th></tr></thead><tbody>${rows.join('')}</tbody></table></div></div>`;
 }
 
 function renderHistory(){
@@ -5204,6 +5357,20 @@ function onboardCard(){
     <div><button class="btn primary" data-act="ob-done" ${O.pick.racket===null||O.pick.apparel===null?'disabled':''}>Confirm deals</button></div></div>`;
 }
 const CHANGELOG = [
+  {id:'2026-09-24g', date:'Sep 24, 2026', title:'New look for phones', items:[
+    'Big era cards are back, each with its own colours and style. On phones, swipe through them.',
+    'A player card shows your overall, top skills and ceiling as you build your player.',
+    'On phones, a bottom tab bar (Week, Player, Schedule, Rankings, More) replaces the tiny scrolling tabs. More opens Sponsors, History, Trophies, Career and Saves.',
+    'Rankings fit on a phone screen, the Player sub-tabs scroll, and the sponsor rules fold away.']},
+  {id:'2026-09-24f', date:'Sep 24, 2026', title:'College changes', items:[
+    'Pick which college you play for when you choose the College star story.',
+    'No endorsements of any kind while you are in college. Sponsors call once you turn pro.']},
+  {id:'2026-09-24e', date:'Sep 24, 2026', title:'iPhone fixes', items:[
+    'Buttons no longer show iPhone blue text; they use the game colours everywhere.',
+    'Typing your name no longer zooms the page in on iPhone.',
+    'The Career tab no longer makes the page wider than the screen.',
+    'Play, Train and Rest buttons use short labels on phones so they fit on one line.',
+    'Buttons no longer stay highlighted after you tap them.']},
   {id:'2026-09-24d', date:'Sep 24, 2026', title:'Faster career setup', items:[
     'The new-career screen is now a short step-by-step setup: Era, Story, Player, Game, Review (Dudes: Era, Dude, Setup, Review).',
     'A bar at the bottom always shows your overall, ceiling and age, with Back and Next buttons. Tap any step to jump back to it.',
@@ -5277,7 +5444,7 @@ function renderModal(){
 
 function render(){
   const app = document.getElementById('app');
-  if(!state){ app.innerHTML = renderCreate(); renderModal(); return; }
+  if(!state){ const oc = document.querySelector('.eracards'), ox = oc ? oc.scrollLeft : null; app.innerHTML = renderCreate(); const nc = document.querySelector('.eracards'); if(nc){ if(ox!==null) nc.scrollLeft = ox; else { const on = nc.querySelector('.eracard.on'); if(on) nc.scrollLeft = on.offsetLeft - nc.offsetLeft - 16; } } renderModal(); return; }
   if(state.over && !state.recap){ app.innerHTML = renderTop() + renderOver(); renderModal(); return; }
   let v;
   if(ui.tab==='week') v = state.match ? renderMatch() : state.team ? renderTeam() : state.tour ? renderTour() : renderHub();
@@ -5317,7 +5484,9 @@ function act(a, v){
     case 'd-trait': d.trait=v; render(); break;
     case 'reroll': rollDraft(d); render(); break;
     case 'start': newCareer(d); window.scrollTo(0,0); break;
-    case 'tab': stopAuto(); if(v==='saves'){ ui.saveMsg=null; prepExport(); } ui.tab=v; ui.confirmNew=false; ui.confirmRetire=false; ui.confirmDrop=null; render(); window.scrollTo(0,0); break;
+    case 'more': ui.moreOpen = !ui.moreOpen; render(); break;
+    case 'more-close': ui.moreOpen = false; render(); break;
+    case 'tab': ui.moreOpen = false; stopAuto(); if(v==='saves'){ ui.saveMsg=null; prepExport(); } ui.tab=v; ui.confirmNew=false; ui.confirmRetire=false; ui.confirmDrop=null; render(); window.scrollTo(0,0); break;
     case 'enter': enterEvent(v); window.scrollTo(0,0); break;
     case 'laver': acceptLaver(); window.scrollTo(0,0); break;
     case 'davis': acceptDavis(); window.scrollTo(0,0); break;
@@ -5418,6 +5587,7 @@ document.addEventListener('keydown', e => { if(e.key==='Escape' && ui.profile){ 
 document.addEventListener('input', e => { if(e.target.id==='f-name' && ui.draft) ui.draft.name = e.target.value; });
 document.addEventListener('change', e => {
   if(e.target.id==='f-country' && ui.draft) ui.draft.country = e.target.value;
+  if(e.target.id==='f-school' && ui.draft){ ui.draft.school = e.target.value; render(); }
   if(e.target.id==='import-file' && e.target.files && e.target.files[0]){ const r = new FileReader(); r.onload = () => importCode(String(r.result||'')); r.readAsText(e.target.files[0]); }
 });
 
@@ -5432,3 +5602,8 @@ function boot(data){
 if(window.claude?.hot?.ready) window.claude.hot.ready(boot); else boot(window.claude?.hot?.data ?? {});
 })();
 </script>
+
+<script>
+if('serviceWorker' in navigator){ window.addEventListener('load', () => { navigator.serviceWorker.register('sw.js').catch(()=>{}); }); }
+</script>
+</html>
